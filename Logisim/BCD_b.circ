@@ -53,6 +53,17 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
+    <appear>
+      <path d="M61,56 Q65,66 69,56" fill="none" stroke="#808080" stroke-width="2"/>
+      <rect fill="none" height="40" stroke="#000000" stroke-width="2" width="30" x="50" y="55"/>
+      <text font-family="SansSerif" font-size="26" text-anchor="middle" x="65" y="83">b</text>
+      <circ-port height="8" pin="30,40" width="8" x="46" y="56"/>
+      <circ-port height="8" pin="30,90" width="8" x="46" y="66"/>
+      <circ-port height="8" pin="30,140" width="8" x="46" y="76"/>
+      <circ-port height="8" pin="30,190" width="8" x="46" y="86"/>
+      <circ-port height="10" pin="370,200" width="10" x="75" y="65"/>
+      <circ-anchor facing="east" height="6" width="6" x="77" y="67"/>
+    </appear>
     <wire from="(290,220)" to="(290,290)"/>
     <wire from="(30,140)" to="(90,140)"/>
     <wire from="(190,90)" to="(190,100)"/>
@@ -108,13 +119,34 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(50,40)" to="(50,230)"/>
     <wire from="(90,160)" to="(220,160)"/>
     <wire from="(90,240)" to="(220,240)"/>
-    <comp lib="0" loc="(30,190)" name="Pin">
+    <comp lib="0" loc="(30,140)" name="Pin">
       <a name="tristate" val="false"/>
-      <a name="label" val="D"/>
+      <a name="label" val="C"/>
       <a name="labelloc" val="north"/>
     </comp>
-    <comp lib="1" loc="(170,100)" name="NOT Gate"/>
-    <comp lib="1" loc="(180,190)" name="NOT Gate"/>
+    <comp lib="0" loc="(370,200)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="B"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="1" loc="(350,200)" name="NAND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="4"/>
+    </comp>
+    <comp lib="1" loc="(180,320)" name="NOT Gate"/>
+    <comp lib="1" loc="(260,160)" name="NAND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="3"/>
+    </comp>
+    <comp lib="1" loc="(260,80)" name="NAND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="4"/>
+    </comp>
+    <comp lib="1" loc="(260,240)" name="NAND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="3"/>
+    </comp>
     <comp lib="0" loc="(30,40)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="A"/>
@@ -125,38 +157,17 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="label" val="B"/>
       <a name="labelloc" val="north"/>
     </comp>
-    <comp lib="0" loc="(30,140)" name="Pin">
+    <comp lib="0" loc="(30,190)" name="Pin">
       <a name="tristate" val="false"/>
-      <a name="label" val="C"/>
+      <a name="label" val="D"/>
       <a name="labelloc" val="north"/>
     </comp>
-    <comp lib="1" loc="(260,80)" name="NAND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="4"/>
-    </comp>
+    <comp lib="1" loc="(170,40)" name="NOT Gate"/>
     <comp lib="1" loc="(260,290)" name="NAND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="3"/>
     </comp>
-    <comp lib="1" loc="(260,240)" name="NAND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="3"/>
-    </comp>
-    <comp lib="1" loc="(260,160)" name="NAND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="3"/>
-    </comp>
-    <comp lib="0" loc="(370,200)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="B"/>
-      <a name="labelloc" val="north"/>
-    </comp>
-    <comp lib="1" loc="(170,40)" name="NOT Gate"/>
-    <comp lib="1" loc="(350,200)" name="NAND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="4"/>
-    </comp>
-    <comp lib="1" loc="(180,320)" name="NOT Gate"/>
+    <comp lib="1" loc="(170,100)" name="NOT Gate"/>
+    <comp lib="1" loc="(180,190)" name="NOT Gate"/>
   </circuit>
 </project>
