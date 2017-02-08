@@ -53,6 +53,17 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
+    <appear>
+      <path d="M61,56 Q65,66 69,56" fill="none" stroke="#808080" stroke-width="2"/>
+      <rect fill="none" height="40" stroke="#000000" stroke-width="2" width="30" x="50" y="55"/>
+      <text font-family="SansSerif" font-size="24" text-anchor="middle" x="61" y="86"> d</text>
+      <circ-port height="8" pin="40,40" width="8" x="46" y="56"/>
+      <circ-port height="8" pin="40,90" width="8" x="46" y="66"/>
+      <circ-port height="8" pin="40,150" width="8" x="46" y="76"/>
+      <circ-port height="8" pin="40,210" width="8" x="46" y="86"/>
+      <circ-port height="10" pin="380,250" width="10" x="75" y="65"/>
+      <circ-anchor facing="east" height="6" width="6" x="77" y="67"/>
+    </appear>
     <wire from="(40,150)" to="(100,150)"/>
     <wire from="(100,90)" to="(160,90)"/>
     <wire from="(140,140)" to="(140,150)"/>
@@ -125,58 +136,58 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(80,180)" to="(80,300)"/>
     <wire from="(100,90)" to="(100,150)"/>
     <wire from="(100,310)" to="(230,310)"/>
-    <comp lib="1" loc="(180,210)" name="NOT Gate"/>
+    <comp lib="1" loc="(270,380)" name="NAND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="4"/>
+    </comp>
+    <comp lib="1" loc="(180,370)" name="NOT Gate"/>
+    <comp lib="0" loc="(40,90)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="B"/>
+      <a name="labelloc" val="north"/>
+    </comp>
     <comp lib="0" loc="(380,250)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="label" val="d"/>
       <a name="labelloc" val="north"/>
     </comp>
-    <comp lib="1" loc="(270,310)" name="NAND Gate">
+    <comp lib="1" loc="(270,190)" name="NAND Gate">
       <a name="size" val="30"/>
-      <a name="inputs" val="3"/>
+      <a name="inputs" val="4"/>
     </comp>
     <comp lib="1" loc="(270,90)" name="NAND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="3"/>
     </comp>
-    <comp lib="1" loc="(270,380)" name="NAND Gate">
+    <comp lib="1" loc="(270,310)" name="NAND Gate">
       <a name="size" val="30"/>
-      <a name="inputs" val="4"/>
+      <a name="inputs" val="3"/>
     </comp>
-    <comp lib="1" loc="(180,430)" name="NOT Gate"/>
-    <comp lib="1" loc="(180,260)" name="NOT Gate"/>
-    <comp lib="0" loc="(40,90)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="B"/>
-      <a name="labelloc" val="north"/>
-    </comp>
-    <comp lib="1" loc="(190,40)" name="NOT Gate"/>
-    <comp lib="1" loc="(270,190)" name="NAND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="4"/>
-    </comp>
-    <comp lib="1" loc="(180,150)" name="NOT Gate"/>
-    <comp lib="0" loc="(40,210)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="D"/>
-      <a name="labelloc" val="north"/>
-    </comp>
-    <comp lib="1" loc="(190,90)" name="NOT Gate"/>
     <comp lib="0" loc="(40,150)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="C"/>
       <a name="labelloc" val="north"/>
     </comp>
+    <comp lib="1" loc="(180,430)" name="NOT Gate"/>
+    <comp lib="1" loc="(180,150)" name="NOT Gate"/>
+    <comp lib="1" loc="(360,250)" name="NAND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="4"/>
+    </comp>
+    <comp lib="1" loc="(180,210)" name="NOT Gate"/>
+    <comp lib="1" loc="(180,260)" name="NOT Gate"/>
+    <comp lib="1" loc="(190,90)" name="NOT Gate"/>
     <comp lib="0" loc="(40,40)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="A"/>
       <a name="labelloc" val="north"/>
     </comp>
-    <comp lib="1" loc="(180,370)" name="NOT Gate"/>
-    <comp lib="1" loc="(360,250)" name="NAND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="4"/>
+    <comp lib="0" loc="(40,210)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="D"/>
+      <a name="labelloc" val="north"/>
     </comp>
+    <comp lib="1" loc="(190,40)" name="NOT Gate"/>
   </circuit>
 </project>
