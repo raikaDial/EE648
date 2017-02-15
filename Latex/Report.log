@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.7)  15 FEB 2017 12:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.7)  15 FEB 2017 12:43
 entering extended mode
 **Report.tex
 (Report.tex
@@ -598,23 +598,30 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[2] (Report.aux) ) 
+[2] <Graphics/topLevelLogicCkt.png, id=15, 467.49657pt x 330.48468pt>
+File: Graphics/topLevelLogicCkt.png Graphic file (type png)
+
+<use Graphics/topLevelLogicCkt.png>
+Package pdftex.def Info: Graphics/topLevelLogicCkt.png used on input line 71.
+(pdftex.def)             Requested size: 373.99776pt x 264.38809pt.
+ [3 <./Graphics/topLevelLogicCkt.png>]
+(Report.aux) ) 
 Here is how much of TeX's memory you used:
- 12092 strings out of 493673
- 245905 string characters out of 3141530
- 254767 words of memory out of 3000000
- 15370 multiletter control sequences out of 15000+200000
+ 12099 strings out of 493673
+ 246083 string characters out of 3141530
+ 254774 words of memory out of 3000000
+ 15376 multiletter control sequences out of 15000+200000
  10903 words of font info for 42 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 38i,10n,43p,10378b,293s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmcsc10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mr17.pfb>
-Output written on Report.pdf (2 pages, 71538 bytes).
+ 38i,10n,43p,10378b,484s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mcsc10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+r12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17
+.pfb>
+Output written on Report.pdf (3 pages, 82543 bytes).
 PDF statistics:
- 28 PDF objects out of 1000 (max. 8388607)
+ 33 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
