@@ -27,6 +27,8 @@
 
 \newcommand{\boldrule}{\rule{\linewidth}{2pt}} % Draws a thick line
 
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu} % Reduces length of \overline
+
 
 \graphicspath{{Graphics/}}
 
@@ -71,12 +73,32 @@ May 1, 2015
 	\includegraphics[scale=.8]{topLevelLogicCkt.png}
 \end{figure}
 
+\begin{equation}
+	a = \overline{\overbar{(\bar{A}\bar{B}\bar{C}D)}\overbar{(\bar{A}B\bar{C}\bar{D})}\overbar{(A\bar{B}CD)}\overbar{(AB\bar{C}D)}}
+\end{equation}
 
+\begin{equation}
+	b = \overline{\overbar{(\bar{A}B\bar{C}D)}\overbar{(BC\bar{D})}\overbar{(ACD)}\overbar{(AB\bar{D})}}
+\end{equation}
 
+\begin{equation}
+	c = \overline{\overbar{(\bar{A}\bar{B}C\bar{D})}\overbar{(AB\bar{D})}\overbar{(ABC)}}
+\end{equation}
 
+\begin{equation}
+	d = \overline{\overbar{(\bar{B}\bar{C}D)}\overbar{(\bar{A}B\bar{C}\bar{D})}\overbar{(BCD)}\overbar{A\bar{B}C\bar{D}}}
+\end{equation}
 
+\begin{equation}
+	e = \overline{\overbar{(\bar{A}D)}\overbar{(\bar{B}\bar{C}D)}\overbar{(\bar{A}B\bar{C})}}
+\end{equation}
 
+\begin{equation}
+	f = \overline{\overbar{(\bar{A}\bar{B}D)}\overbar{(\bar{A}\bar{B}C)}\overbar{(\bar{A}CD)}\overbar{(AB\bar{C}D)}}
+\end{equation}
 
-
+\begin{equation}
+	g = \overline{\overbar{(\bar{A}\bar{B}\bar{C})}\overbar{(\bar{A}BCD)}\overbar{(AB\bar{C}\bar{D})}}
+\end{equation}
 
 \end{document}
