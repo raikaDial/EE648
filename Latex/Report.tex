@@ -51,7 +51,7 @@ Binary Coded Hexadecimal for a 7 Segment Display}
 Ryker \textsc{Dial}\\
 Cody \textsc{Gossel}\\
 Zach \textsc{Krehlik}\\[1cm]
-May 1, 2015
+February 17, 2017
 }
 \end{center}
 \pagenumbering{gobble}
@@ -65,37 +65,90 @@ May 1, 2015
 \pagenumbering{arabic}
 
 %Rest of report goes here
+\section{Top Level Design}
+
+\section{Detailed Design}
 
 \begin{figure}[h]
 	\centering
 	\label{fig:TopLevelCkt}
-	\caption{Circuit top level layout}
 	\includegraphics[scale=.8]{topLevelLogicCkt.png}
+	\caption{Circuit top level layout}
+\end{figure}
+
+
+\begin{figure}[h]
+	\centering
+	\label{fig:aBlockGates}
+	\includegraphics[width=0.65\linewidth, keepaspectratio]{a_logicCkt}
+	\caption{Block a Gate Level Schematic}
 \end{figure}
 
 \begin{equation}
 	a = \overline{\overbar{(\bar{A}\bar{B}\bar{C}D)}\overbar{(\bar{A}B\bar{C}\bar{D})}\overbar{(A\bar{B}CD)}\overbar{(AB\bar{C}D)}}
 \end{equation}
 
+\begin{figure}[h]
+	\centering
+	\label{fig:bBlockGates}
+	\includegraphics[width=0.65\linewidth, keepaspectratio]{b_logicCkt}
+	\caption{Block b Gate Level Schematic}
+\end{figure}
+
 \begin{equation}
 	b = \overline{\overbar{(\bar{A}B\bar{C}D)}\overbar{(BC\bar{D})}\overbar{(ACD)}\overbar{(AB\bar{D})}}
 \end{equation}
+
+\begin{figure}[h]
+	\centering
+	\label{fig:cBlockGates}
+	\includegraphics[width=0.65\linewidth, keepaspectratio]{c_logicCkt}
+	\caption{Block c Gate Level Schematic}
+\end{figure}
 
 \begin{equation}
 	c = \overline{\overbar{(\bar{A}\bar{B}C\bar{D})}\overbar{(AB\bar{D})}\overbar{(ABC)}}
 \end{equation}
 
+\begin{figure}[h]
+	\centering
+	\label{fig:dBlockGates}
+	\includegraphics[width=0.65\linewidth, keepaspectratio]{d_logicCkt}
+	\caption{Block d Gate Level Schematic}
+\end{figure}
+
 \begin{equation}
 	d = \overline{\overbar{(\bar{B}\bar{C}D)}\overbar{(\bar{A}B\bar{C}\bar{D})}\overbar{(BCD)}\overbar{A\bar{B}C\bar{D}}}
 \end{equation}
+
+\begin{figure}[h]
+	\centering
+	\label{fig:eBlockGates}
+	\includegraphics[width=0.65\linewidth, keepaspectratio]{e_logicCkt}
+	\caption{Block e Gate Level Schematic}
+\end{figure}
 
 \begin{equation}
 	e = \overline{\overbar{(\bar{A}D)}\overbar{(\bar{B}\bar{C}D)}\overbar{(\bar{A}B\bar{C})}}
 \end{equation}
 
+\begin{figure}[h]
+	\centering
+	\label{fig:fBlockGates}
+	\includegraphics[width=0.65\linewidth, keepaspectratio]{f_logicCkt}
+	\caption{Block f Gate Level Schematic}
+\end{figure}
+
 \begin{equation}
 	f = \overline{\overbar{(\bar{A}\bar{B}D)}\overbar{(\bar{A}\bar{B}C)}\overbar{(\bar{A}CD)}\overbar{(AB\bar{C}D)}}
 \end{equation}
+
+\begin{figure}[h]
+	\centering
+	\label{fig:gBlockGates}
+	\includegraphics[width=0.65\linewidth, keepaspectratio]{g_logicCkt}
+	\caption{Block g Gate Level Schematic}
+\end{figure}
 
 \begin{equation}
 	g = \overline{\overbar{(\bar{A}\bar{B}\bar{C})}\overbar{(\bar{A}BCD)}\overbar{(AB\bar{C}\bar{D})}}
