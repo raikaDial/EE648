@@ -9,6 +9,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage[hidelinks]{hyperref}
+\usepackage{todonotes}
 
 \pagestyle{fancy}
 \lhead{} 
@@ -42,7 +43,7 @@
 \begin{center}
 %Lab title goes here
 {\Huge EE 648 -- VLSI Design\\[.5cm]
-Binary Coded Hexadecimal for a 7 Segment Display}
+Binary Coded Hexadecimal to Seven-Segment Display Converter}
 \end{center}
 \vspace{5mm}
 \boldrule\\
@@ -53,7 +54,7 @@ Binary Coded Hexadecimal for a 7 Segment Display}
 \textsc{Ryker Dial}\\
 \textsc{Cody Gossel}\\
 \textsc{Zach Krehlik}\\[1cm]
-March 3, 2017
+March 10, 2017
 }
 \end{center}
 
@@ -70,82 +71,110 @@ March 3, 2017
 %Rest of report goes here
 
 \section{Introduction}
-The goal of this project is to design and fabricate a chip that will use 4 input bits to control a 7 segment display. 
-An integrated circuit such as this can be used to connect a 7 segment display to a microcontroller, reducing the number of output pins required to drive the display.
-Four output pins of the controller are used to input the number to the IC, which then uses open collector outputs to pull down the cathodes of the 7 segment display. 
+The objective of this project is to design and fabricate an integrated circuit that takes four input bits representing a hexadecimal number and displays that number on a seven-segment display.
+Such a circuit will be useful for a microcontroller because it reduces the number of pins required to use the display from seven to four, freeing up GPIO pins for other tasks.
+
+%The goal of this project is to design and fabricate a chip that will use 4 input bits to control a 7 segment display. 
+%An integrated circuit such as this can be used to connect a 7 segment display to a microcontroller, reducing the number of output pins required to drive the display.
+%Four output pins of the controller are used to input the number to the IC, which then uses open collector outputs to pull down the cathodes of the 7 segment display. 
 
 
 \section{Top Level Design}
-The general strategy with the design is to separate the logic for each segment into its own module. 
-Each module will be routed to an output pin through an open collector transistor to drive the 7 segment display. 
-The top level diagram is shown in Figure \ref{fig:TopLevelCkt}.
+To facilitate the design of this circuit, the logic for each segment is separated into its own module.
+This converter is being designed for an active-low seven-segment display, so the output of each module will be used to switch a FET that pulls the segment to ground when switched on, turning on the segment.
+The top-level design for the converter circuit with these modules included is shown in Figure \ref{fig:TopLevelCkt}.
 
-\begin{figure}[h]
+%The general strategy with the design is to separate the logic for each segment into its own module.
+%The output of each module will be used to switch a FET that drives the corresponding segment on the seven segment display.
+%The top level diagram is shown in Figure \ref{fig:TopLevelCkt}.
+
+\begin{figure}[H]
 	\centering
-	\includegraphics[scale=.8]{topLevelLogicCkt.png}
-	\caption{Circuit top level layout}
+	\includegraphics[width=\linewidth, keepaspectratio]{topLevelLogicCkt.png}
+	\caption{Converter Top Level layout}
 	\label{fig:TopLevelCkt}
 \end{figure}
 
-Many of the gate level circuits use the inputs as well as their complements.  
-To reduce the number of gates in the final design, the inputs will each be inverted before being to the logic circuitry.  
-This will minimize redundancies in the gate layout.  
-This has not been included in this iteration of the design.
+%Many of the gate level circuits use the inputs as well as their complements.  
+%To reduce the number of gates in the final design, the inputs will each be inverted before being to the logic circuitry.  
+%This will minimize redundancies in the gate layout.  
+%This has not been included in this iteration of the design.
 
 
 \section{Detailed Design}
 \subsection{Gate Level}
 
-The truth table for the four inputs and all seven outputs was created, it is shown in Figure \ref{fig:truthTable}.
+The truth table for the converter, which includes its four inputs and seven outputs, is shown in Table \ref{tab:truthTable}.
+A value of zero corresponds to the segment being on, and vice-versa.
+From this, truth tables for each individual output were obtained and transferred to a program called Logisim, which is a free tool for designing and simulating logic circuits.
+This tool was used to generate minimized NAND-only Boolean expressions for each module, as using only inverting logic will reduce the number of inverters required to realize the converter circuit.
+Logisim was also used to generate the gate-level schematics for each module; the gate-level schematics for each module can be found in Appendix \ref{app:segmentLogic}, and the corresponding logic functions can be found in Appendix \ref{app:logicEquations}.
 
-\begin{figure}[h]
+%The truth table for the four inputs and all seven outputs was created, it is shown in Figure \ref{fig:truthTable}.
+
+\begin{table}[H]
 	\centering
-	\includegraphics{hex7seg_truthTable.png}
-	\caption{Circuit Truth Table}
-	\label{fig:truthTable}
+	\caption{Converter Truth Table}
+	\vspace*{2mm}
+	\label{tab:truthTable}
+	\includegraphics[width=0.4\linewidth, keepaspectratio]{hex7seg_truthTable.png}
+\end{table}
+
+\newpage
+From the logic equations and gate-level schematics, note that the complement of any particular input is used many times.
+In the actual implementation of the circuit, as opposed to what is shown in the gate-level schematics, the complements of the input signals will be produced only once and reused as needed, greatly reducing the number of inverters in the circuit.
+Additionally, there are several terms in the logic equations that appear more than once: specifically $\overbar{(\bar{A}B\bar{C}\bar{D})}$, $\overbar{(AB\bar{C}D)}$, $\overbar{(AB\bar{D})}$, and $\overbar{(\bar{B}\bar{C}D)}$; the outputs of these gates will be reused as well.
+
+To verify the functionality of the circuit, Logisim was used to simulate the output for each of the sixteen possible inputs.
+The input and output waveforms were then plotted and are shown in Figure \ref{fig:BCD_sim}.
+Comparing the simulated output to the converter circuit's truth table verifies that the design is valid.
+
+%The truth table was transferred to the free software Logisim one output at a time.  
+%Logisim analyzed the truth table for each output bit and generated a minimized NAND Boolean expression.  
+%Utilizing inverting logic will reduce the number of inverters required to realize the circuit.
+%Note that a zero in the output represents an active segment.
+%The equivalent set of logic equations is shown in Appendix \ref{app:logicEquations}.
+
+%Each logic equation represents a block on the top level diagram, and has a corresponding series of gates. The gate level design of these blocks is included in Appendix \ref{app:segmentLogic}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth, keepaspectratio]{BCD_sim_waveform.png}
+	\caption{Simulated Input and Output of Converter}
+	\label{fig:BCD_sim}
 \end{figure}
-
-The truth table was transferred to the free software Logisim one output at a time.  
-Logisim analyzed the truth table for each output bit and generated a minimized NAND Boolean expression.  
-Utilizing inverting logic will reduce the number of inverters required to realize the circuit.
-Note that a zero in the output represents an active segment.
-The equivalent set of logic equations is shown in Appendix \ref{app:logicEquations}.
-
-Each logic equation represents a block on the top level diagram, and has a corresponding series of gates. The gate level design of these blocks is included in Appendix \ref{app:segmentLogic}.
 
 \subsection{Transistor Level}
 
-By optimizing the design to use only NAND gates the overall complexity is reduced. 
-Efficient 2, 3, and 4 input NAND gates can be designed once and reused in block form.
-Apart from the NAND gates, an inverter will also be required.
-The transistor level design of these gates is shown in the figures below.
-
-\begin{figure}[h]
+By using Logisim to implement each module with only NAND and inverter gates, the converter circuit can be realized with only a few gates: specifically two, three, and four input NAND gates, and an inverter.
+Efficient implementations of these gates can be designed once and reused as needed, though different sizes of these gates will need to be made to optimize for delay and power consumption. 
+The transistor level design of these gates is shown in Figures \ref{fig:2nandTran}, \ref{fig:3nandTran}, \ref{fig:4nandTran}, and \ref{fig:notTran}.
+\begin{figure}[H]
 	\centering
-	\includegraphics[scale=.5]{NAND_2_Trans.png}
+	\includegraphics[width=0.3\linewidth, keepaspectratio]{NAND_2_Trans.png}
 	\caption{Transistor Level Schematic for Two-Input NAND}
 	\label{fig:2nandTran}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
-	\includegraphics[scale=.5]{NAND_3_Trans.png}
+	\includegraphics[width=0.3\linewidth, keepaspectratio]{NAND_3_Trans.png}
 	\caption{Transistor Level Schematic for Three-Input NAND}
 	\label{fig:3nandTran}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
-	\includegraphics[scale=.5]{NAND_4_Trans.png}
+	\includegraphics[width=0.3\linewidth, keepaspectratio]{NAND_4_Trans.png}
 	\caption{Transistor Level Schematic for Four-Input NAND}
 	\label{fig:4nandTran}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
-	\includegraphics[scale=.5]{NOT_Trans.png}
+	\includegraphics[width=0.3\linewidth, keepaspectratio]{NOT_Trans.png}
 	\caption{Transistor Level Schematic for Inverter}
-	\label{fig:not}
+	\label{fig:notTran}
 \end{figure}
 
 

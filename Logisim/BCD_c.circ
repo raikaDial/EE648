@@ -109,49 +109,49 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(80,80)" to="(150,80)"/>
     <wire from="(100,280)" to="(230,280)"/>
     <wire from="(100,100)" to="(230,100)"/>
-    <comp lib="1" loc="(270,270)" name="NAND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="3"/>
-    </comp>
-    <comp lib="1" loc="(160,210)" name="NOT Gate"/>
-    <comp lib="0" loc="(370,190)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="C"/>
+    <comp lib="0" loc="(40,80)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="B"/>
       <a name="labelloc" val="north"/>
     </comp>
     <comp lib="1" loc="(270,190)" name="NAND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="3"/>
     </comp>
-    <comp lib="1" loc="(170,30)" name="NOT Gate"/>
-    <comp lib="0" loc="(40,80)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="B"/>
-      <a name="labelloc" val="north"/>
-    </comp>
     <comp lib="0" loc="(40,200)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="D"/>
       <a name="labelloc" val="north"/>
     </comp>
+    <comp lib="1" loc="(180,80)" name="NOT Gate"/>
+    <comp lib="1" loc="(270,270)" name="NAND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="3"/>
+    </comp>
+    <comp lib="1" loc="(160,210)" name="NOT Gate"/>
     <comp lib="1" loc="(350,190)" name="NAND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="3"/>
     </comp>
-    <comp lib="1" loc="(180,80)" name="NOT Gate"/>
-    <comp lib="0" loc="(40,130)" name="Pin">
+    <comp lib="0" loc="(40,30)" name="Pin">
       <a name="tristate" val="false"/>
-      <a name="label" val="C"/>
+      <a name="label" val="A"/>
       <a name="labelloc" val="north"/>
     </comp>
+    <comp lib="0" loc="(370,190)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="c"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="1" loc="(170,30)" name="NOT Gate"/>
     <comp lib="1" loc="(270,90)" name="NAND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="4"/>
     </comp>
-    <comp lib="0" loc="(40,30)" name="Pin">
+    <comp lib="0" loc="(40,130)" name="Pin">
       <a name="tristate" val="false"/>
-      <a name="label" val="A"/>
+      <a name="label" val="C"/>
       <a name="labelloc" val="north"/>
     </comp>
   </circuit>
