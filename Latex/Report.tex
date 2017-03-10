@@ -102,7 +102,7 @@ The top-level design for the converter circuit with these modules included is sh
 
 
 \section{Detailed Design}
-\subsection{Gate Level}
+\subsection{Gate Level} \label{sec:gateLevel}
 
 The truth table for the converter, which includes its four inputs and seven outputs, is shown in Table \ref{tab:truthTable}.
 A value of zero corresponds to the segment being on, and vice-versa.
@@ -146,6 +146,8 @@ Comparing the simulated output to the converter circuit's truth table verifies t
 
 \subsection{Transistor Level}
 
+\subsubsection{Transistor Level Schematics}
+
 By using Logisim to implement each module with only NAND and inverter gates, the converter circuit can be realized with only a few gates: specifically two, three, and four input NAND gates, and an inverter.
 Efficient implementations of these gates can be designed once and reused as needed, though different sizes of these gates will need to be made to optimize for delay and power consumption. 
 The transistor level design of these gates is shown in Figures \ref{fig:2nandTran}, \ref{fig:3nandTran}, \ref{fig:4nandTran}, and \ref{fig:notTran}.
@@ -177,6 +179,19 @@ The transistor level design of these gates is shown in Figures \ref{fig:2nandTra
 	\label{fig:notTran}
 \end{figure}
 
+\subsubsection{Transistor Sizing}
+Sizing the transistors to optimize for delay first requires knowing the input and output capacitance for each module of the converter circuit. 
+\todo{Output capacitance}
+Since the circuit only generates inverted inputs once and reuses them, the input capacitance depends upon the largest fanout required for an inverted input. 
+\todo{(relate fanout and transistor size)}
+The required fanout for each inverted input is determined by counting the number of times each inverted term appears in the logic equations in Appendix \ref{app:logicEquations}, while accounting for terms appearing in the duplicate subcircuits mentioned in Section \ref{sec:gateLevel}.
+Doing so yields fanouts for $\bar{A}$, $\bar{B}$, $\bar{C}$, and $\bar{D}$ of 11, 8, 8, and 6, respectively.
+Each inverter will be sized so that it has the same driving strength as a unit-sized inverter with a fanout of one.
+\todo{Inverter driving a NAND, so load cap is h*(kPMOS + kNMOS)*C, but what are the k values?}
+
+When optimizing for delay, the input capacitance of interest is that of the critical path.
+Since the inverter for $\bar{A}$ has the largest fanout it will have the largest input and output capacitance.
+Since each module contains an $\bar{A}$ term, the critical path for each module will start with this inverter.
 
 
 \newpage
