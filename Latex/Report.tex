@@ -181,18 +181,18 @@ The transistor level design of these gates is shown in Figures \ref{fig:2nandTra
 
 \subsubsection{Transistor Sizing}
 Sizing the transistors to optimize for delay first requires knowing the input and output capacitance for each module of the converter circuit. 
-\todo{Output capacitance}
-Since the circuit only generates inverted inputs once and reuses them, the input capacitance depends upon the largest fanout required for an inverted input. 
-\todo{(relate fanout and transistor size)}
-The required fanout for each inverted input is determined by counting the number of times each inverted term appears in the logic equations in Appendix \ref{app:logicEquations}, while accounting for terms appearing in the duplicate subcircuits mentioned in Section \ref{sec:gateLevel}.
-Doing so yields fanouts for $\bar{A}$, $\bar{B}$, $\bar{C}$, and $\bar{D}$ of 11, 8, 8, and 6, respectively.
-Each inverter will be sized so that it has the same driving strength as a unit-sized inverter with a fanout of one.
-\todo{Inverter driving a NAND, so load cap is h*(kPMOS + kNMOS)*C, but what are the k values?}
+In addition to the physical capacitance of the external connections to the circuit it is necessary to determine the capacitance of one normalized unit, generally referred to as \(C\).
+Knowledge of these two values will allow for the application of the linear delay model.
+The value of \(C\) is determined by constructing a unit inverter in Magic, and extracting it to a spice model.
+A unit inverter has an input capacitance of \(3C\), and spice calculates the physical capacitance of the inverter to be \SI{221}{\femto\farad}.
+Dividing this number by 3 yields the normalization factor of \SI{74}{\femto\farad}.
 
-When optimizing for delay, the input capacitance of interest is that of the critical path.
-Since the inverter for $\bar{A}$ has the largest fanout it will have the largest input and output capacitance.
-Since each module contains an $\bar{A}$ term, the critical path for each module will start with this inverter.
+The input capacitance to the circuit is based off of an MSP430 output pin.
+The capacitance of the output pin is readily availiable on a device datasheet, and is roughly \SI{5}{\pico\farad}.
+This can be normalized to \(67C\) for the input to the circuit.
 
+The output capacitance is based off of the open drain transistor which forms the output of the IC.
+An example of an open drain circuit is shown in 
 
 \newpage
 \appendix
