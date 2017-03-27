@@ -192,7 +192,36 @@ The capacitance of the output pin is readily availiable on a device datasheet, a
 This can be normalized to \(67C\) for the input to the circuit.
 
 The output capacitance is based off of the open drain transistor which forms the output of the IC.
-An example of an open drain circuit is shown in 
+An example of an open drain circuit is shown in Figure \ref{fig:openCollector}.
+
+\begin{figure}[H]
+	\centering	
+	\includegraphics[width=0.25\linewidth, keepaspectratio]{openCollector.png}
+	\caption{Block a Gate Level Schematic}
+	\label{fig:openCollector}
+\end{figure}
+
+The nmos will present either a hi-z or low voltage to the external device.
+One end of the external device is attached to an external voltage source, and the other is attached to the load pin of the nmos.
+When the nmos is turned on it allows for current to flow through the LED, which causes it to light up. 
+
+Sizing of the open drain transistor is determined by considering the current necessary for an LED segment and a desired voltage drop.
+In order to keep dissipated power through the IC low, a \(Vds\) of 0.2 V is selected for the transistor.
+The maximum current required will be approximately \SI{20}{\milli\ampere}.
+These two values can be used with the long channel mosfet equations to determine a required channel width, assuming that the channel length will be held at the minimum.
+The relation between transistor current and channel width is given by Equation \eqref{eq:chanCurrent}.
+
+\begin{equation}
+\label{eq:chanCurrent}
+ I_{ds} = \mu C_{ox} \frac{W}{L} (V_{gt} - V_{ds}) V_{ds}
+\end{equation}
+
+There are several given values in the equation, \(\mu\), the electron mobility can be found in the spice technology file and is \SI{275}{\centi\meter\per\volt\squared}.
+\(C_{ox}\) is the per area capacitance of the oxide layer, and is derived from the \SI{40}{\angstrom} oxide thickness used by TSMC.
+\(V_{gt}\), \(V_{ds}\), and \(I_{ds}\) are based on the 3.3 V logic level of the IC less the threshold voltage of 0.7 V, the desired \(V_{ds}\) of 0.2 V, and the maximum expected current of 20 mA respectively.
+
+Rearranging the equation and solving for \(W\) when \(L\) is fixed at \SI{180}{\nano\meter} results in a width of \SI{3.3e-5}{\meter}, which is approximately \(550 \lambda\) in magic.
+The input capacitance of a transistor is proportional to the width, with each \(\lambda\) resulting in \(C\) worth of capacitance, so the open drain output is said to present \(550 C\) worth of capacitance to the logic circuit.
 
 \newpage
 \appendix
