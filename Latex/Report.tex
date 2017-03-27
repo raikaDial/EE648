@@ -179,7 +179,7 @@ The transistor level design of these gates is shown in Figures \ref{fig:2nandTra
 	\label{fig:notTran}
 \end{figure}
 
-\subsubsection{Transistor Sizing}
+\subsubsection{Transistor/Gate Sizing}
 Sizing the transistors to optimize for delay first requires knowing the input and output capacitance for each module of the converter circuit. 
 In addition to the physical capacitance of the external connections to the circuit it is necessary to determine the capacitance of one normalized unit, generally referred to as \(C\).
 Knowledge of these two values will allow for the application of the linear delay model.
@@ -222,6 +222,59 @@ There are several given values in the equation, \(\mu\), the electron mobility c
 
 Rearranging the equation and solving for \(W\) when \(L\) is fixed at \SI{180}{\nano\meter} results in a width of \SI{3.3e-5}{\meter}, which is approximately \(550 \lambda\) in magic.
 The input capacitance of a transistor is proportional to the width, with each \(\lambda\) resulting in \(C\) worth of capacitance, so the open drain output is said to present \(550 C\) worth of capacitance to the logic circuit.
+
+With values for the input and output capacitances is it possible to calculate the critical path delay for each module.
+For modules a, b, d, and f the critical path is an un-inverted input feeding into a four-input NAND, the output of which is fed into another four-input NAND which produces the module output.
+For modules c, e, and g the critical path is an un-inverted input feeding into a three-input NAND, the output of which is fed into another four-input NAND which produces the module output.
+The delay for the worst case path can be found using the equation
+\begin{equation}
+	D = NF^{1/N}+P
+\end{equation}
+where \(N\) is the number of stages, \(F\) is the total path effort, and \(P\) is the combined parasitics of each gate in the path. F is calculated by the equation
+\begin{equation}
+	F = GBH
+	\label{eqn:Path_Effort}
+\end{equation}
+where \(G\) is the path logical effort, \(B\) is the branching effort, and \(H\) is the path electrical effort, which is the output capacitance of the path divided by the input capacitance of the path.
+
+\(G\) is the product of the individual logical efforts for each gate.
+The logical effort for a three-input NAND is 5/3, and the logical effort for a four-input NAND is 6/3.
+Thus, \(G\) for the critical path in modules a, b, d, and f is four, and the \(G\) for the critical path in modules c, e, and g is 10/3.
+Since there is no branching in any of the circuits, the branching effort \(B\) for each path is one.
+Each module has an input capacitance of 67C and an output capacitance of 550C, so \(H\) for each path is 8.2.
+Using these values, the critical path effort for modules a, b, d, and f is 32.8 and the critical path effort for modules c, e, and g is 27.363.
+
+With values for \(F\) it is possible to calculate the delay of the critical path for each circuit.
+The parasitic for a three-input NAND is three and the parasitic for a four-input NAND is four, so the path parasitic for modules a, b, d, and f is eight, and the path parasitic for modules c, e, and g is seven. 
+The number of stages in each critical path is two, so using Equation \ref{eqn:Path_Effort} the critical path delay for modules a, b, d, and f is 19.46 and the critical path for modules c, e, and g is 17.46.
+
+To check whether these delays are close to optimal, the path effort \(F\) can be used to calculate the optimal number of stages, \(\hat{N}\) with the equation
+\begin{equation}
+	\hat{N} = log_4(F)
+\end{equation}
+For each module, the resulting optimal number of stages is three.
+The three-stage critical path for each module is simply the two-stage critical path with an inverter placed at the input, and the calculated delays for these paths are 18.6 for modules a, b, d, and f and 17.0 for modules c, e, and g. 
+Comparing these delays to the delays of the two-stage paths, the effect of adding another stage is so marginal that it is not worth it to add extra stages to the critical path, which would decrease the path effort and thus decrease the delay at the cost of higher power consumption.
+
+Since the decrease in delay is not worth the increase in power, the critical paths remain unmodified in the circuit.
+Thus, the gates in the critical paths can be sized using the equation
+\begin{equation}
+	C_{in} = \frac{C_{out}*g}{F^{1/N}}
+\end{equation}
+where \(C_{in}\) and \(C_{out}\) are the input and output capacitance of the gate and \(g\) is the logical effort of the gate.
+Starting at the last gate, the output capacitance of the path is used to calculate the input capacitance, which determines the size of the gate; these calculations cascade until the end of the path is reached.
+For the critical path for modules a, b, d, and f, stage one ends up having an input capacitance of 67C and stage 2 ends up having an input capacitance of 192C. 
+By dividing these by the input capacitances of the corresponding unit-sized gates, this results in stage one having a size of 11 and stage two having a size of 32.
+Similarly, stage one for modules c, e, and g has an input capacitance of 67C and a size of 11, and stage two has an input capacitance of 175C and a size of 29.
+Since stage one for each critical path is a four-input NAND of size 11, only one four-input NAND gate will have to be designed for this stage.
+The results of this section are summarized in Table \ref{tab:delay_sizing}.
+
+\begin{table}[H]
+	\centering
+	\caption{Critical Path Delay and Stage Sizes}
+	\label{tab:delay_sizing}
+	\includegraphics[width=0.75\linewidth, keepaspectratio]{DelaySizeTable}
+\end{table}
 
 \newpage
 \appendix
