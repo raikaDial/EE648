@@ -273,7 +273,14 @@ The results of this section are summarized in Table \ref{tab:delay_sizing}.
 	\centering
 	\caption{Critical Path Delay and Stage Sizes}
 	\label{tab:delay_sizing}
-	\includegraphics[width=0.75\linewidth, keepaspectratio]{DelaySizeTable}
+	\begin{tabular}{cccc}
+		\toprule
+		Modules & Critical Path Delay & Stage One Size & Stage Two Size	\\
+		\midrule
+		a,b,d,f & 19.5 & 11 & 32\\
+		c,e,g & 17.5 & 11 & 29\\
+		\bottomrule
+	\end{tabular}
 \end{table}
 
 \newpage
