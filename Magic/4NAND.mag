@@ -1,24 +1,25 @@
 magic
 tech tsmc
-timestamp 1492027034
+timestamp 1492030027
 << nwell >>
 rect -18 -8 66 16
 << ntransistor >>
-rect 6 -79 9 -75
-rect 19 -79 22 -75
-rect 32 -79 35 -75
-rect 45 -79 48 -75
+rect 6 -79 9 -63
+rect 19 -79 22 -63
+rect 32 -79 35 -63
+rect 45 -79 48 -63
 << ptransistor >>
 rect 6 0 9 8
 rect 19 0 22 8
 rect 32 0 35 8
 rect 45 0 48 8
 << ndiffusion >>
-rect 4 -79 6 -75
-rect 9 -79 19 -75
-rect 22 -79 32 -75
-rect 35 -79 45 -75
-rect 48 -79 75 -75
+rect 0 -73 6 -63
+rect 4 -79 6 -73
+rect 9 -79 19 -63
+rect 22 -79 32 -63
+rect 35 -79 45 -63
+rect 48 -79 75 -63
 << pdiffusion >>
 rect 5 0 6 8
 rect 9 0 10 8
@@ -46,10 +47,10 @@ rect 6 8 9 20
 rect 19 8 22 20
 rect 32 8 35 20
 rect 45 8 48 20
-rect 6 -75 9 0
-rect 19 -75 22 0
-rect 32 -75 35 0
-rect 45 -75 48 0
+rect 6 -63 9 0
+rect 19 -63 22 0
+rect 32 -63 35 0
+rect 45 -63 48 0
 rect 6 -83 9 -79
 rect 19 -83 22 -79
 rect 32 -83 35 -79

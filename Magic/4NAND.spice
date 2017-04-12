@@ -1,0 +1,39 @@
+Our shitty nand gate
+* HSPICE file created from 4NAND.ext - technology: tsmc
+
+.include ./mosistsmc180.sp
+
+.option scale=0.06u
+
+Vpow Vdd Gnd DC 3.3
+
+Va2 A Gnd PULSE(0 3.3 20n 1n 1n 100n 10)
+Vb2 B Gnd PULSE(0 3.3 20n 1n 1n 100n 10)
+Vc2 C Gnd PULSE(0 3.3 20n 1n 1n 100n 10)
+Vd2 D Gnd PULSE(0 3.3 20n 1n 1n 100n 10) 
+
+M1000 Y A Vdd Vdd pfet w=8 l=3
++ ad=160 pd=72 as=224 ps=104 
+M1001 Vdd B Y Vdd pfet w=8 l=3
++ ad=0 pd=0 as=0 ps=0 
+M1002 Y C Vdd Vdd pfet w=8 l=3
++ ad=0 pd=0 as=0 ps=0 
+M1003 Vdd D Y Vdd pfet w=8 l=3
++ ad=0 pd=0 as=0 ps=0 
+M1004 a_9_n79 A Gnd Gnd nfet w=16 l=3
++ ad=160 pd=52 as=136 ps=56 
+M1005 a_22_n79 B a_9_n79 Gnd nfet w=16 l=3
++ ad=160 pd=52 as=0 ps=0 
+M1006 a_35_n79 C a_22_n79 Gnd nfet w=16 l=3
++ ad=160 pd=52 as=0 ps=0 
+M1007 Y D a_35_n79 Gnd nfet w=16 l=3
++ ad=496 pd=106 as=0 ps=0 
+C0 Vdd Y 0.7fF
+C1 Y Gnd 0.1fF
+C2 Gnd Gnd 0.5fF
+C3 Y Gnd 0.2fF
+C4 Vdd Gnd 1.4fF
+C5 Y Gnd 250fF
+
+.tran .01n 200n
+.end

@@ -1,0 +1,14 @@
+Va A Gnd PULSE(0 3.3 1n 1n 1n 20n 10)
+Vb B Gnd PULSE(0 3.3 11n 1n 1n 20n 10)
+Vc C Gnd PULSE(0 3.3 21n 1n 1n 20n 10)
+Vd D Gnd PULSE(0 3.3 31n 1n 1n 20n 10) 
+
+Va2 A Gnd PULSE(0 3.3 50n 1n 1n 100n 10)
+Vb2 B Gnd PULSE(0 3.3 50n 1n 1n 100n 10)
+Vc2 C Gnd PULSE(0 3.3 50n 1n 1n 100n 10)
+Vd2 D Gnd PULSE(0 3.3 50n 1n 1n 100n 10) 
+
+VaD A Gnd DC 0
+VbD B Gnd DC 0
+VcD C Gnd DC 0
+VdD D Gnd DC 0
