@@ -1,0 +1,75 @@
+magic
+tech tsmc
+timestamp 1492030492
+<< nwell >>
+rect -18 -8 53 16
+<< ntransistor >>
+rect 6 -79 9 -67
+rect 19 -79 22 -67
+rect 32 -79 35 -67
+<< ptransistor >>
+rect 6 0 9 8
+rect 19 0 22 8
+rect 32 0 35 8
+<< ndiffusion >>
+rect 0 -73 6 -67
+rect 4 -79 6 -73
+rect 9 -79 19 -67
+rect 22 -79 32 -67
+rect 35 -79 75 -67
+<< pdiffusion >>
+rect 5 0 6 8
+rect 9 0 10 8
+rect 18 0 19 8
+rect 22 0 23 8
+rect 31 0 32 8
+rect 35 0 36 8
+rect 44 0 45 8
+<< ndcontact >>
+rect -4 -81 4 -73
+rect 75 -81 83 -73
+<< pdcontact >>
+rect -3 0 5 8
+rect 10 0 18 8
+rect 23 0 31 8
+rect 36 0 44 8
+<< psubstratepcontact >>
+rect 102 -89 110 -81
+<< nsubstratencontact >>
+rect -16 0 -8 8
+<< polysilicon >>
+rect 6 8 9 20
+rect 19 8 22 20
+rect 32 8 35 20
+rect 6 -67 9 0
+rect 19 -67 22 0
+rect 32 -67 35 0
+rect 6 -83 9 -79
+rect 19 -83 22 -79
+rect 32 -83 35 -79
+<< polycontact >>
+rect 4 20 12 28
+rect 17 20 25 28
+rect 30 20 38 28
+<< metal1 >>
+rect -16 8 -12 28
+rect -1 12 29 16
+rect -1 8 3 12
+rect 25 8 29 12
+rect -8 0 -3 8
+rect -16 -89 -12 0
+rect 12 -4 16 0
+rect 38 -4 42 0
+rect 12 -8 81 -4
+rect 77 -73 81 -8
+rect 106 -81 110 28
+rect -2 -85 2 -81
+rect -2 -89 102 -85
+<< labels >>
+rlabel metal1 -14 22 -14 22 3 Vdd
+rlabel metal1 108 -9 108 -9 7 gnd
+rlabel metal1 78 -38 78 -38 1 Y
+rlabel polysilicon 7 18 7 18 1 A
+rlabel polysilicon 20 18 20 18 1 B
+rlabel polysilicon 33 18 33 18 1 C
+<< end >>
