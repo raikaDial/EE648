@@ -1,0 +1,43 @@
+* HSPICE file created from 1INV.ext - technology: tsmc
+
+.option scale=0.06u
+
+M1000 Y4 Y Vdd Vdd pfet w=8 l=3
++ ad=80 pd=36 as=400 ps=180 
+M1001 Y4 Y Gnd Gnd nfet w=4 l=3
++ ad=72 pd=36 as=360 ps=180 
+M1002 Y3 Y Vdd Vdd pfet w=8 l=3
++ ad=80 pd=36 as=0 ps=0 
+M1003 Y3 Y Gnd Gnd nfet w=4 l=3
++ ad=72 pd=36 as=0 ps=0 
+M1004 Y2 Y Vdd Vdd pfet w=8 l=3
++ ad=80 pd=36 as=0 ps=0 
+M1005 Y2 Y Gnd Gnd nfet w=4 l=3
++ ad=72 pd=36 as=0 ps=0 
+M1006 Y1 Y Vdd Vdd pfet w=8 l=3
++ ad=80 pd=36 as=0 ps=0 
+M1007 Y1 Y Gnd Gnd nfet w=4 l=3
++ ad=72 pd=36 as=0 ps=0 
+M1008 Y A Vdd Vdd pfet w=8 l=3
++ ad=80 pd=36 as=0 ps=0 
+M1009 Y A Gnd Gnd nfet w=4 l=3
++ ad=72 pd=36 as=0 ps=0 
+C0 Gnd Y3 0.1fF
+C1 Gnd Y2 0.1fF
+C2 Vdd Y 0.9fF
+C3 Y3 Vdd 0.1fF
+C4 Vdd Y2 0.1fF
+C5 Gnd Y1 0.1fF
+C6 Gnd Y4 0.1fF
+C7 Vdd Y1 0.1fF
+C8 Vdd Y4 0.1fF
+C9 Gnd Y 1.6fF
+C10 Y1 gnd! 0.0fF
+C11 Y2 gnd! 0.0fF
+C12 Y3 gnd! 0.0fF
+C13 Gnd gnd! 1.7fF
+C14 Y4 gnd! 0.0fF
+C15 Y gnd! 1.5fF
+C16 Vdd gnd! 3.6fF
+
+** hspice subcircuit dictionary

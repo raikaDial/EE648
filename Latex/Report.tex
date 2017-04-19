@@ -294,6 +294,7 @@ These design choices make it easier to size the gates for optimal delay at a lat
 
 Figures \ref{fig:magic_inv}, \ref{fig:magic_NAND2}, \ref{fig:magic_NAND3}, and \ref{fig:magic_NAND4} in Appendix \ref{app:magic_vlsi_layouts} show the VLSI layouts for the inverter and the two, three, and four input NAND gates.
 The functionality of each gate was verified by simulation with ngspice.
+Figures \ref{fig:spice_INV}, \ref{fig:spice_2NAND}, \ref{fig:spice_3NAND}, and \ref{fig:spice_4NAND} in Appendix \ref{app:spice} show these simulations.
 During these simulations, the gate delay, rise, and fall times were also measured.
 Table \ref{tab:tran_dim} shows these measurements, as well as the physical dimensions of each gate.
 
@@ -303,9 +304,9 @@ Table \ref{tab:tran_dim} shows these measurements, as well as the physical dimen
 	\label{tab:tran_dim}
 	\begin{tabular}{lcccccc}
 		\toprule
-		Gate & Delay & Rise & Fall & Width (\(\lambda\)) & Height (\(\lambda\)) & Area (\(\lambda^2\))\\
+		Gate & Delay (ns) & Rise (ns) & Fall (ns) & Width (\(\lambda\)) & Height (\(\lambda\)) & Area (\(\lambda^2\))\\
 		\midrule
-		INV		&&&&	128 &	86	& 11,008	\\
+		INV		& 0.12 & 0.23 & 0.25 &	128 &	86	& 11,008	\\
 		2NAND	&&&&	128	&	90 	& 11,520	\\
 		3NAND	&&&&	128 &	94 	& 12,032	\\
 		4NAND	&&&&	128	&	98 	& 12,544	\\
@@ -444,6 +445,37 @@ g = \overline{\overbar{(\bar{A}\bar{B}\bar{C})}\overbar{(\bar{A}BCD)}\overbar{(A
 	\includegraphics[width=0.70\linewidth, keepaspectratio]{Graphics/4NAND}
 	\caption{VLSI Layout for 4-Input NAND}
 	\label{fig:magic_NAND4}
+\end{figure}
+
+\section{SPICE Simulations}
+\label{app:spice}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.70\linewidth, keepaspectratio]{Graphics/1INV_spice}
+	\caption{Spice Simulation of Unit Inverter}
+	\label{fig:spice_INV}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.70\linewidth, keepaspectratio]{Graphics/2NAND_spice}
+	\caption{Spice Simulation of 2-Input NAND}
+	\label{fig:spice_2NAND}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.70\linewidth, keepaspectratio]{Graphics/3NAND_spice}
+	\caption{Spice Simulation of 3-Input NAND}
+	\label{fig:spice_3NAND}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.70\linewidth, keepaspectratio]{Graphics/4NAND_spice}
+	\caption{Spice Simulation of 4-Input NAND}
+	\label{fig:spice_4NAND}
 \end{figure}
 
 \end{document}
