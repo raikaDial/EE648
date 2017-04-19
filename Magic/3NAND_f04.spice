@@ -1,0 +1,51 @@
+* HSPICE file created from 3NAND_f04.ext - technology: tsmc
+
+.option scale=0.06u
+
+M1000 Y Vdd Vdd Vdd pfet w=8 l=3
++ ad=304 pd=140 as=456 ps=210 
+M1001 Vdd Y Y Vdd pfet w=8 l=3
++ ad=0 pd=0 as=0 ps=0 
+M1002 Y Y Vdd Vdd pfet w=8 l=3
++ ad=0 pd=0 as=0 ps=0 
+M1003 a_9_162 Vdd gnd Gnd nfet w=12 l=3
++ ad=120 pd=44 as=288 ps=126 
+M1004 a_22_162 Y a_9_162 Gnd nfet w=12 l=3
++ ad=120 pd=44 as=0 ps=0 
+M1005 Y Y a_22_162 Gnd nfet w=12 l=3
++ ad=216 pd=84 as=0 ps=0 
+M1006 Y1 Vdd Vdd Vdd pfet w=8 l=3
++ ad=152 pd=70 as=0 ps=0 
+M1007 Vdd Y Y1 Vdd pfet w=8 l=3
++ ad=0 pd=0 as=0 ps=0 
+M1008 Y1 Y Vdd Vdd pfet w=8 l=3
++ ad=0 pd=0 as=0 ps=0 
+M1009 a_9_68 Vdd gnd Gnd nfet w=12 l=3
++ ad=120 pd=44 as=0 ps=0 
+M1010 a_22_68 Y a_9_68 Gnd nfet w=12 l=3
++ ad=120 pd=44 as=0 ps=0 
+M1011 Y1 Y a_22_68 Gnd nfet w=12 l=3
++ ad=108 pd=42 as=0 ps=0 
+M1012 Y A Vdd Vdd pfet w=8 l=3
++ ad=0 pd=0 as=0 ps=0 
+M1013 Vdd B Y Vdd pfet w=8 l=3
++ ad=0 pd=0 as=0 ps=0 
+M1014 Y C Vdd Vdd pfet w=8 l=3
++ ad=0 pd=0 as=0 ps=0 
+M1015 a_9_n26 A gnd Gnd nfet w=12 l=3
++ ad=120 pd=44 as=0 ps=0 
+M1016 a_22_n26 B a_9_n26 Gnd nfet w=12 l=3
++ ad=120 pd=44 as=0 ps=0 
+M1017 Y C a_22_n26 Gnd nfet w=12 l=3
++ ad=0 pd=0 as=0 ps=0 
+C0 gnd Y 0.1fF
+C1 gnd Y1 0.1fF
+C2 Y Vdd 1.6fF
+C3 Y1 Vdd 0.4fF
+C4 Y1 Y 0.0fF
+C5 Y1 gnd! 0.0fF
+C6 gnd gnd! 1.2fF
+C7 Y gnd! 1.1fF
+C8 Vdd gnd! 2.6fF
+
+** hspice subcircuit dictionary
