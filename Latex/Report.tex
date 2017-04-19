@@ -10,6 +10,7 @@
 \usepackage{float}
 \usepackage[hidelinks]{hyperref}
 \usepackage{todonotes}
+\usepackage{indentfirst}
 
 \pagestyle{fancy}
 \lhead{} 
@@ -54,7 +55,7 @@ Binary Coded Hexadecimal to Seven-Segment Display Converter}
 \textsc{Ryker Dial}\\
 \textsc{Cody Gossel}\\
 \textsc{Zach Krehlik}\\[1cm]
-March 10, 2017
+April 18, 2017
 }
 \end{center}
 
@@ -179,6 +180,7 @@ The transistor level design of these gates is shown in Figures \ref{fig:2nandTra
 	\label{fig:notTran}
 \end{figure}
 
+\newpage
 \subsubsection{Transistor/Gate Sizing}
 Sizing the transistors to optimize for delay first requires knowing the input and output capacitance for each module of the converter circuit. 
 In addition to the physical capacitance of the external connections to the circuit it is necessary to determine the capacitance of one normalized unit, generally referred to as \(C\).
@@ -196,7 +198,7 @@ An example of an open drain circuit is shown in Figure \ref{fig:openCollector}.
 
 \begin{figure}[H]
 	\centering	
-	\includegraphics[width=0.25\linewidth, keepaspectratio]{openCollector.png}
+	\includegraphics[width=0.4\linewidth, keepaspectratio]{openCollector.png}
 	\caption{Block a Gate Level Schematic}
 	\label{fig:openCollector}
 \end{figure}
@@ -279,6 +281,34 @@ The results of this section are summarized in Table \ref{tab:delay_sizing}.
 		\midrule
 		a,b,d,f & 19.5 & 11 & 32\\
 		c,e,g & 17.5 & 11 & 29\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\section{Magic VLSI Layout}
+Implementing the circuit in bare silicon required first constructing VLSI layouts for each gate.
+To ease the assemblage of the full layout, the layout was started by designing every gate to be unit sized; this allows for expedient construction of the circuit and verification of the layout.
+Additionally, the gates were laid out such that increasing the transistor size increases the width of the layout, while the height stays constant.
+The \(V_{dd}\) and \(gnd\) rails of the transistor are at the top and bottom of the layout, respectively, so this means that resizing the transistors does not move the voltage rails.
+These design choices make it easier to size the gates for optimal delay at a later date.
+
+Figures \ref{fig:magic_inv}, \ref{fig:magic_NAND2}, \ref{fig:magic_NAND3}, and \ref{fig:magic_NAND4} in Appendix \ref{app:magic_vlsi_layouts} show the VLSI layouts for the inverter and the two, three, and four input NAND gates.
+The functionality of each gate was verified by simulation with ngspice.
+During these simulations, the gate delay, rise, and fall times were also measured.
+Table \ref{tab:tran_dim} shows these measurements, as well as the physical dimensions of each gate.
+
+\begin{table}[H]
+	\centering
+	\caption{Select Transistor Properties}
+	\label{tab:tran_dim}
+	\begin{tabular}{lcccccc}
+		\toprule
+		Gate & Delay & Rise & Fall & Width (\(\lambda\)) & Height (\(\lambda\)) & Area (\(\lambda^2\))\\
+		\midrule
+		INV		&&&&	128 &	86	& 11,008	\\
+		2NAND	&&&&	128	&	90 	& 11,520	\\
+		3NAND	&&&&	128 &	94 	& 12,032	\\
+		4NAND	&&&&	128	&	98 	& 12,544	\\
 		\bottomrule
 	\end{tabular}
 \end{table}
@@ -384,5 +414,36 @@ f = \overline{\overbar{(\bar{A}\bar{B}D)}\overbar{(\bar{A}\bar{B}C)}\overbar{(\b
 g = \overline{\overbar{(\bar{A}\bar{B}\bar{C})}\overbar{(\bar{A}BCD)}\overbar{(AB\bar{C}\bar{D})}}
 \end{equation}
 
+\newpage
+\section{Magic VLSI Layouts}
+\label{app:magic_vlsi_layouts}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.70\linewidth, keepaspectratio]{Graphics/1INV}
+	\caption{VLSI Layout for Inverter}
+	\label{fig:magic_inv}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.70\linewidth, keepaspectratio]{Graphics/2NAND}
+	\caption{VLSI Layout for 2-Input NAND}
+	\label{fig:magic_NAND2}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.70\linewidth, keepaspectratio]{Graphics/3NAND}
+	\caption{VLSI Layout for 3-Input NAND}
+	\label{fig:magic_NAND3}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.70\linewidth, keepaspectratio]{Graphics/4NAND}
+	\caption{VLSI Layout for 4-Input NAND}
+	\label{fig:magic_NAND4}
+\end{figure}
 
 \end{document}
