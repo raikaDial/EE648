@@ -295,24 +295,35 @@ These design choices make it easier to size the gates for optimal delay at a lat
 Figures \ref{fig:magic_inv}, \ref{fig:magic_NAND2}, \ref{fig:magic_NAND3}, and \ref{fig:magic_NAND4} in Appendix \ref{app:magic_vlsi_layouts} show the VLSI layouts for the inverter and the two, three, and four input NAND gates.
 The functionality of each gate was verified by simulation with ngspice.
 Figures \ref{fig:spice_INV}, \ref{fig:spice_2NAND}, \ref{fig:spice_3NAND}, and \ref{fig:spice_4NAND} in Appendix \ref{app:spice} show these simulations.
-During these simulations, the gate delay, rise, and fall times were also measured.
+
+During simulations the delay, rise, and fall times were also measured from visual inspection of the waveform.
+Delay is measured from 50\% on the input to 50\% on the output, the rise time is measured from 20\% on the output to 80\% on the output, and fall time is measured from 80\% on the output to 20\% on the output.
+For the two, three, and four input NAND gates, the circuits used to test the delay, rise, and fall times consisted of the device under test, with an inverter on each input and the output driving four inputs to a circuit of the same type.
+Figure \ref{} shows this setup for the ""-input NAND.
+For the inverter circuit, the fan-out-of-four delay (fo4) was measured; the setup for this is shown in Figure \ref{}
 Table \ref{tab:tran_dim} shows these measurements, as well as the physical dimensions of each gate.
 
 \begin{table}[H]
 	\centering
 	\caption{Select Transistor Properties}
 	\label{tab:tran_dim}
-	\begin{tabular}{lcccccc}
+	\begin{tabular}{lccccccc}
 		\toprule
-		Gate & Delay (ns) & Rise (ns) & Fall (ns) & Width (\(\lambda\)) & Height (\(\lambda\)) & Area (\(\lambda^2\))\\
+		Gate & \begin{tabular}{@{}c@{}}Falling \\ Delay \end{tabular} & \begin{tabular}{@{}c@{}}Rising \\ Delay \end{tabular} & Rise & Fall & Width & Height & Area\\
 		\midrule
-		INV		& 0.12 & 0.23 & 0.25 &	128 &	86	& 11,008	\\
-		2NAND	&&&&	128	&	90 	& 11,520	\\
-		3NAND	&&&&	128 &	94 	& 12,032	\\
-		4NAND	&&&&	128	&	98 	& 12,544	\\
+		INV		& ps & ps & ps & ps &	128\(\lambda\) &	86\(\lambda\)	& 11,008\(\lambda\)	\\
+		2NAND	&  & ps &      &      &	128\(\lambda\)	&	90\(\lambda\) 	& 11,520\(\lambda\)	\\
+		3NAND	&&&&&	128\(\lambda\) &	94\(\lambda\) 	& 12,032\(\lambda\)	\\
+		4NAND	&&&&&	128\(\lambda\)	&	98\(\lambda\) 	& 12,544\(\lambda\)	\\
 		\bottomrule
 	\end{tabular}
 \end{table}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth, keepaspectratio]{Graphics/1INV_Timing}
+	\caption{Measuring Delay and Rise/Fall Times}
+\end{figure}
 
 \newpage
 \appendix
@@ -384,7 +395,7 @@ Table \ref{tab:tran_dim} shows these measurements, as well as the physical dimen
 \end{figure}
 
 
-\newpage
+\newpage0.22
 \section{Logic Equations}
 \label{app:logicEquations}
 \begin{equation}

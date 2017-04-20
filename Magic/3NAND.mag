@@ -1,6 +1,6 @@
 magic
 tech tsmc
-timestamp 1492568363
+timestamp 1492655848
 << nwell >>
 rect -18 -8 52 16
 << ntransistor >>
@@ -69,9 +69,5 @@ rect -2 -36 102 -32
 rect 106 -51 110 -36
 << labels >>
 rlabel metal1 108 -9 108 -9 7 gnd
-rlabel polysilicon 7 18 7 18 1 A
-rlabel polysilicon 20 18 20 18 1 B
-rlabel polysilicon 33 18 33 18 1 C
 rlabel metal1 -16 22 -16 22 3 Vdd
-rlabel metal1 37 -6 37 -6 1 Y
 << end >>
