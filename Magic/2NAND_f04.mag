@@ -1,6 +1,6 @@
 magic
 tech tsmc
-timestamp 1492638607
+timestamp 1492648210
 << nwell >>
 rect -16 172 41 196
 rect -16 82 41 106
@@ -123,6 +123,9 @@ rect 27 76 31 82
 rect 0 62 4 68
 rect 108 66 112 148
 rect 0 58 104 62
+rect 8 41 89 45
+rect 8 28 12 41
+rect 27 24 77 28
 rect 1 12 31 16
 rect 1 8 5 12
 rect 27 8 31 12
@@ -136,16 +139,30 @@ rect 0 -28 4 -22
 rect 108 -24 112 58
 rect 0 -32 104 -28
 rect 108 -47 112 -32
+rect 50 -98 76 -94
+rect 50 -184 88 -180
 << m2contact >>
 rect 65 201 73 209
 rect 65 110 73 118
+rect 89 39 97 47
+rect 77 22 85 30
 rect 65 -10 73 -2
+rect 76 -99 84 -91
+rect 88 -186 96 -178
 << metal2 >>
 rect 67 118 72 201
 rect 67 -2 72 110
+rect 78 -91 83 22
+rect 90 -178 95 39
+use 1INV  1INV_0
+timestamp 1492647730
+transform 1 0 33 0 1 -113
+box -49 -20 79 66
+use 1INV  1INV_1
+timestamp 1492647730
+transform 1 0 33 0 1 -199
+box -49 -20 79 66
 << labels >>
-rlabel polysilicon 9 18 9 18 1 A
-rlabel polysilicon 22 18 22 18 1 B
 rlabel metal1 -14 22 -14 22 3 Vdd
 rlabel metal1 110 -9 110 -9 7 gnd
 rlabel metal1 29 -10 29 -10 1 Y

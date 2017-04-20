@@ -1,6 +1,6 @@
 magic
 tech tsmc
-timestamp 1492641159
+timestamp 1492657465
 << nwell >>
 rect -18 180 52 204
 rect -18 86 52 110
@@ -134,7 +134,7 @@ rect -18 215 -14 231
 rect -18 211 4 215
 rect -18 196 -14 211
 rect 25 211 30 215
-rect 38 211 65 215
+rect 38 211 51 215
 rect -1 200 29 204
 rect -1 196 3 200
 rect 25 196 29 200
@@ -151,7 +151,7 @@ rect -2 152 102 156
 rect -18 117 4 121
 rect -18 102 -14 117
 rect 25 116 30 120
-rect 38 116 65 120
+rect 38 116 50 120
 rect -1 106 29 110
 rect -1 102 3 106
 rect 25 102 29 106
@@ -165,6 +165,11 @@ rect 38 76 42 86
 rect -2 62 2 68
 rect 106 66 110 152
 rect -2 58 102 62
+rect 6 48 83 52
+rect 6 28 10 48
+rect 19 35 72 39
+rect 19 28 23 35
+rect 38 22 61 26
 rect -1 12 29 16
 rect -1 8 3 12
 rect 25 8 29 12
@@ -173,31 +178,57 @@ rect -8 0 -3 8
 rect -18 -51 -14 0
 rect 12 -4 16 0
 rect 38 -4 42 0
-rect 12 -8 65 -4
+rect 12 -8 49 -4
 rect 38 -18 42 -8
 rect -2 -32 2 -26
 rect 106 -28 110 58
 rect -2 -36 102 -32
 rect 106 -51 110 -36
+rect 20 -119 24 -97
+rect 50 -100 61 -96
+rect 20 -123 32 -119
+rect 19 -205 23 -183
+rect 52 -187 72 -183
+rect 19 -209 32 -205
+rect 53 -274 83 -270
 << m2contact >>
-rect 65 208 73 216
-rect 65 113 73 121
-rect 65 -9 73 -1
+rect 51 208 59 216
+rect 50 113 58 121
+rect 83 46 91 54
+rect 72 33 80 41
+rect 61 20 69 28
+rect 49 -9 57 -1
+rect 61 -102 69 -94
+rect 72 -189 80 -181
+rect 83 -276 91 -268
 << metal2 >>
-rect 67 121 72 208
-rect 67 -1 72 113
+rect 52 121 57 208
+rect 51 -1 56 113
+rect 63 -94 68 20
+rect 74 -181 79 33
+rect 85 -268 90 46
+use 1INV  1INV_0
+timestamp 1492656010
+transform 1 0 31 0 1 -117
+box -49 -20 79 66
+use 1INV  1INV_1
+timestamp 1492656010
+transform 1 0 31 0 1 -203
+box -49 -20 79 66
+use 1INV  1INV_2
+timestamp 1492656010
+transform 1 0 31 0 1 -289
+box -49 -20 79 66
 << labels >>
 rlabel metal1 108 -9 108 -9 7 gnd
-rlabel polysilicon 7 18 7 18 1 A
-rlabel polysilicon 20 18 20 18 1 B
-rlabel polysilicon 33 18 33 18 1 C
 rlabel metal1 -16 22 -16 22 3 Vdd
-rlabel metal1 37 -6 37 -6 1 Y
 rlabel metal1 108 85 108 85 7 gnd
 rlabel metal1 -16 116 -16 116 3 Vdd
 rlabel metal1 108 179 108 179 7 gnd
 rlabel metal1 -16 210 -16 210 3 Vdd
-rlabel metal1 37 182 37 182 1 Y
 rlabel metal1 12 86 42 90 1 Y1
-rlabel m2contact 67 -6 67 -6 1 Y
+rlabel metal1 12 180 42 184 1 Y2
+rlabel space 18 -272 26 -264 1 stim
+rlabel metal1 6 28 10 52 1 A
+rlabel metal1 12 -8 49 -4 1 Y
 << end >>
