@@ -1,6 +1,6 @@
 magic
 tech tsmc
-timestamp 1492656010
+timestamp 1493152604
 << nwell >>
 rect -13 17 30 50
 << ntransistor >>
@@ -19,6 +19,8 @@ rect 14 3 22 11
 << pdcontact >>
 rect -1 25 7 33
 rect 14 25 22 33
+<< psubstratepcontact >>
+rect 71 -8 79 0
 << nsubstratencontact >>
 rect 14 40 22 48
 << polysilicon >>
@@ -38,10 +40,10 @@ rect -1 40 14 46
 rect -1 33 4 40
 rect 17 11 22 25
 rect 1 -2 5 3
-rect 75 -2 79 66
-rect 1 -6 79 -2
-rect 75 -20 79 -6
+rect 75 0 79 66
+rect 1 -6 71 -2
+rect 75 -20 79 -8
 << labels >>
-rlabel metal1 -49 -14 -45 66 3 Vdd
-rlabel metal1 75 -14 79 66 7 Gnd
+rlabel metal1 -49 -20 -45 66 3 Vdd
+rlabel metal1 75 -20 79 66 7 Gnd
 << end >>
