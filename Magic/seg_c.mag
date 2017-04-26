@@ -1,6 +1,6 @@
 magic
 tech tsmc
-timestamp 1493191327
+timestamp 1493192020
 << metal1 >>
 rect -57 44 -53 86
 rect -57 -286 -53 37
@@ -136,4 +136,9 @@ use 3NAND  3NAND_2
 timestamp 1493160834
 transform 1 0 18 0 1 -501
 box -18 -51 110 43
+<< labels >>
+rlabel metal1 -57 -552 -53 37 3 A
+rlabel space -47 -553 -42 86 1 B
+rlabel metal1 -35 -552 -31 86 1 C
+rlabel space -24 -553 -20 86 1 D
 << end >>
