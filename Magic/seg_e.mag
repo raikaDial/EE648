@@ -1,7 +1,9 @@
 magic
 tech tsmc
-timestamp 1493238285
+timestamp 1493249588
 << metal1 >>
+rect 0 86 4 92
+rect 124 86 128 92
 rect -57 44 -53 86
 rect -57 -544 -53 37
 rect -46 -42 -42 86
@@ -43,6 +45,7 @@ rect 24 -468 28 -443
 rect 37 -454 74 -450
 rect 37 -469 41 -454
 rect 49 -473 86 -469
+rect 56 -507 64 -503
 rect 148 -544 152 -379
 rect 159 -544 163 -285
 rect 170 -360 174 -273
@@ -81,6 +84,7 @@ rect 88 -411 95 -404
 rect 62 -446 69 -439
 rect 74 -454 81 -447
 rect 86 -473 93 -466
+rect 64 -507 71 -500
 rect 167 -367 174 -360
 << metal2 >>
 rect -50 37 25 42
@@ -100,32 +104,33 @@ rect 76 -447 81 -320
 rect 93 -367 167 -362
 rect 93 -379 145 -374
 rect 88 -466 93 -411
+rect 66 -551 71 -507
 use 1INV  1INV_0
-timestamp 1493152604
+timestamp 1493248008
 transform 1 0 49 0 1 20
 box -49 -20 79 66
 use 1INV  1INV_1
-timestamp 1493152604
+timestamp 1493248008
 transform 1 0 49 0 1 -66
 box -49 -20 79 66
 use 1INV  1INV_2
-timestamp 1493152604
+timestamp 1493248008
 transform 1 0 49 0 1 -152
 box -49 -20 79 66
 use 2NAND  2NAND_0
-timestamp 1493160951
+timestamp 1493246188
 transform 1 0 16 0 1 -215
 box -16 -47 112 43
 use 3NAND  3NAND_0
-timestamp 1493160834
+timestamp 1493246171
 transform 1 0 18 0 1 -305
 box -18 -51 110 43
 use 3NAND  3NAND_1
-timestamp 1493160834
+timestamp 1493246171
 transform 1 0 18 0 1 -399
 box -18 -51 110 43
 use 3NAND  3NAND_2
-timestamp 1493160834
+timestamp 1493246171
 transform 1 0 18 0 1 -493
 box -18 -51 110 43
 << labels >>
@@ -133,4 +138,7 @@ rlabel metal1 -57 -544 -53 86 3 A
 rlabel metal1 -46 -544 -42 86 1 B
 rlabel metal1 -35 -544 -31 86 1 C
 rlabel metal1 -24 -544 -20 86 1 D
+rlabel metal1 0 86 4 92 5 Vdd
+rlabel metal1 124 86 128 92 5 Gnd
+rlabel metal2 66 -551 71 -546 1 Y
 << end >>
