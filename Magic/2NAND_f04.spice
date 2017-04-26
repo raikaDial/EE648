@@ -1,0 +1,43 @@
+* HSPICE file created from 2NAND_f04.ext - technology: tsmc
+
+.option scale=0.06u
+
+M1000 Y2 Y Vdd Vdd pfet w=8 l=3
++ ad=80 pd=36 as=432 ps=204 
+M1001 Vdd Y Y2 Vdd pfet w=8 l=3
++ ad=0 pd=0 as=0 ps=0 
+M1002 a_11_158 Y gnd Gnd nfet w=8 l=3
++ ad=80 pd=36 as=216 ps=102 
+M1003 Y2 Y a_11_158 Gnd nfet w=8 l=3
++ ad=72 pd=34 as=0 ps=0 
+M1004 Y1 Y Vdd Vdd pfet w=8 l=3
++ ad=80 pd=36 as=0 ps=0 
+M1005 Vdd Y Y1 Vdd pfet w=8 l=3
++ ad=0 pd=0 as=0 ps=0 
+M1006 a_11_68 Y gnd Gnd nfet w=8 l=3
++ ad=80 pd=36 as=0 ps=0 
+M1007 Y1 Y a_11_68 Gnd nfet w=8 l=3
++ ad=72 pd=34 as=0 ps=0 
+M1008 Y A Vdd Vdd pfet w=8 l=3
++ ad=80 pd=36 as=0 ps=0 
+M1009 Vdd B Y Vdd pfet w=8 l=3
++ ad=0 pd=0 as=0 ps=0 
+M1010 a_11_n22 A gnd Gnd nfet w=8 l=3
++ ad=80 pd=36 as=0 ps=0 
+M1011 Y B a_11_n22 Gnd nfet w=8 l=3
++ ad=72 pd=34 as=0 ps=0 
+C0 Y2 gnd 0.1fF
+C1 Vdd Y 1.1fF
+C2 Y Y1 0.0fF
+C3 gnd Y 0.1fF
+C4 Y2 Y 0.0fF
+C5 Vdd Y1 0.3fF
+C6 gnd Y1 0.1fF
+C7 Y2 Vdd 0.3fF
+C8 Y1 gnd! 0.0fF
+C9 gnd gnd! 1.2fF
+C10 Y2 gnd! 0.0fF
+C11 Y gnd! 1.1fF
+C12 Vdd gnd! 1.9fF
+
+** hspice subcircuit dictionary

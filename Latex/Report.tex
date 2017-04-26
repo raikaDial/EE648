@@ -10,6 +10,7 @@
 \usepackage{float}
 \usepackage[hidelinks]{hyperref}
 \usepackage{todonotes}
+\usepackage{indentfirst}
 
 \pagestyle{fancy}
 \lhead{} 
@@ -54,7 +55,7 @@ Binary Coded Hexadecimal to Seven-Segment Display Converter}
 \textsc{Ryker Dial}\\
 \textsc{Cody Gossel}\\
 \textsc{Zach Krehlik}\\[1cm]
-March 10, 2017
+April 18, 2017
 }
 \end{center}
 
@@ -179,6 +180,7 @@ The transistor level design of these gates is shown in Figures \ref{fig:2nandTra
 	\label{fig:notTran}
 \end{figure}
 
+\newpage
 \subsubsection{Transistor/Gate Sizing}
 Sizing the transistors to optimize for delay first requires knowing the input and output capacitance for each module of the converter circuit. 
 In addition to the physical capacitance of the external connections to the circuit it is necessary to determine the capacitance of one normalized unit, generally referred to as \(C\).
@@ -196,7 +198,7 @@ An example of an open drain circuit is shown in Figure \ref{fig:openCollector}.
 
 \begin{figure}[H]
 	\centering	
-	\includegraphics[width=0.25\linewidth, keepaspectratio]{openCollector.png}
+	\includegraphics[width=0.4\linewidth, keepaspectratio]{openCollector.png}
 	\caption{Block a Gate Level Schematic}
 	\label{fig:openCollector}
 \end{figure}
@@ -283,6 +285,62 @@ The results of this section are summarized in Table \ref{tab:delay_sizing}.
 	\end{tabular}
 \end{table}
 
+\section{Magic VLSI Layout}
+Implementing the circuit in bare silicon required first constructing VLSI layouts for each gate.
+To ease the assemblage of the full layout, the layout was started by designing every gate to be unit sized; this allows for expedient construction of the circuit and verification of the layout.
+Additionally, the gates were laid out such that increasing the transistor size increases the width of the layout, while the height stays constant.
+The \(V_{dd}\) and \(gnd\) rails of the transistor are at the top and bottom of the layout, respectively, so this means that resizing the transistors does not move the voltage rails.
+These design choices make it easier to size the gates for optimal delay at a later date.
+
+Figures \ref{fig:magic_inv}, \ref{fig:magic_NAND2}, \ref{fig:magic_NAND3}, and \ref{fig:magic_NAND4} in Appendix \ref{app:magic_vlsi_layouts} show the VLSI layouts for the inverter and the two, three, and four input NAND gates.
+The functionality of each gate was verified by simulation with ngspice.
+Figures \ref{fig:spice_INV}, \ref{fig:spice_2NAND}, \ref{fig:spice_3NAND}, and \ref{fig:spice_4NAND} in Appendix \ref{app:spice} show these simulations.
+
+During simulations the delay, rise, and fall times were also measured from visual inspection of the waveform.
+Delay is measured from 50\% on the input to 50\% on the output, the rise time is measured from 20\% on the output to 80\% on the output, and fall time is measured from 80\% on the output to 20\% on the output; Figure \ref{fig:delay_rise_fall} shows an example of how these were determined.
+For the two, three, and four input NAND gates, the circuits used to test the delay, rise, and fall times consisted of the device under test, with a unit inverter on each input and the output driving four inputs to circuits of the same type.
+Figure \ref{fig:nand_delay_meas} shows this setup for the 2-input NAND.
+
+For the inverter circuit, the fan-out-of-four delay (FO4) was measured; the setup for this is shown in Figure \ref{fig:inv_delay_meas}.
+Table \ref{tab:tran_dim} shows these measurements, as well as the physical dimensions of each gate.
+
+\begin{table}[H]
+	\centering
+	\caption{Transistor Delay, Rise, and Fall Times}
+	\label{tab:tran_dim}
+	\begin{tabular}{lccccccc}
+		\toprule
+		Gate & Rise & Fall & \begin{tabular}{@{}c@{}}Falling \\ Delay \end{tabular} & \begin{tabular}{@{}c@{}}Rising \\ Delay \end{tabular} &  Width & Height & Area\\
+		\midrule
+		INV		& 50 ps & 55 ps & 40 ps & 40 ps &	128\(\lambda\) &	86\(\lambda\)	& 11,008\(\lambda\)	\\
+		2NAND	& 135 ps & 120 ps &   120 ps &   90 ps  &	128\(\lambda\)	&	90\(\lambda\) 	& 11,520\(\lambda\)	\\
+		3NAND	& 215 ps & 130 ps & 135 ps & 100 ps &	128\(\lambda\) &	94\(\lambda\) 	& 12,032\(\lambda\)	\\
+		4NAND	& 265 ps & 155 ps & 185 ps & 110 ps &	128\(\lambda\)	&	98\(\lambda\) 	& 12,544\(\lambda\)	\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth, keepaspectratio]{Graphics/FO4_Delay}
+	\caption{Measuring FO4 Delay and Rise/Fall Times of Inverter}
+	\label{fig:delay_rise_fall}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth, keepaspectratio]{Graphics/NAND_FO4}
+	\caption{Delay and Rise/Fall Time Measurement Setup for NAND Gates}
+	\label{fig:nand_delay_meas}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth, keepaspectratio]{Graphics/INV_FO4}
+	\caption{Delay and Rise/Fall Time Measurement Setup for Inverter}
+	\label{fig:inv_delay_meas}
+\end{figure}
+
 \newpage
 \appendix
 \section{Segment Logic Diagrams}
@@ -353,7 +411,7 @@ The results of this section are summarized in Table \ref{tab:delay_sizing}.
 \end{figure}
 
 
-\newpage
+\newpage0.22
 \section{Logic Equations}
 \label{app:logicEquations}
 \begin{equation}
@@ -384,5 +442,67 @@ f = \overline{\overbar{(\bar{A}\bar{B}D)}\overbar{(\bar{A}\bar{B}C)}\overbar{(\b
 g = \overline{\overbar{(\bar{A}\bar{B}\bar{C})}\overbar{(\bar{A}BCD)}\overbar{(AB\bar{C}\bar{D})}}
 \end{equation}
 
+\newpage
+\section{Magic VLSI Layouts}
+\label{app:magic_vlsi_layouts}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.70\linewidth, keepaspectratio]{Graphics/1INV}
+	\caption{VLSI Layout for Inverter}
+	\label{fig:magic_inv}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.70\linewidth, keepaspectratio]{Graphics/2NAND}
+	\caption{VLSI Layout for 2-Input NAND}
+	\label{fig:magic_NAND2}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.70\linewidth, keepaspectratio]{Graphics/3NAND}
+	\caption{VLSI Layout for 3-Input NAND}
+	\label{fig:magic_NAND3}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.70\linewidth, keepaspectratio]{Graphics/4NAND}
+	\caption{VLSI Layout for 4-Input NAND}
+	\label{fig:magic_NAND4}
+\end{figure}
+
+\section{SPICE Simulations}
+\label{app:spice}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.70\linewidth, keepaspectratio]{Graphics/1INV_spice}
+	\caption{Spice Simulation of Unit Inverter}
+	\label{fig:spice_INV}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.70\linewidth, keepaspectratio]{Graphics/2NAND_spice}
+	\caption{Spice Simulation of 2-Input NAND}
+	\label{fig:spice_2NAND}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.70\linewidth, keepaspectratio]{Graphics/3NAND_spice}
+	\caption{Spice Simulation of 3-Input NAND}
+	\label{fig:spice_3NAND}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.70\linewidth, keepaspectratio]{Graphics/4NAND_spice}
+	\caption{Spice Simulation of 4-Input NAND}
+	\label{fig:spice_4NAND}
+\end{figure}
 
 \end{document}
