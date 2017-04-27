@@ -1,6 +1,6 @@
 magic
 tech tsmc
-timestamp 1493248603
+timestamp 1493253785
 << metal1 >>
 rect 0 86 4 92
 rect 124 86 128 92
@@ -112,7 +112,7 @@ rect 79 -447 84 -233
 rect 96 -293 167 -288
 rect 91 -458 96 -326
 rect 103 -474 108 -422
-rect 65 -560 71 -515
+rect 66 -560 71 -515
 use 1INV  1INV_0
 timestamp 1493248008
 transform 1 0 49 0 1 20
@@ -142,11 +142,11 @@ timestamp 1493246171
 transform 1 0 18 0 1 -501
 box -18 -51 110 43
 << labels >>
-rlabel metal1 -57 -552 -53 37 3 A
-rlabel space -47 -553 -42 86 1 B
-rlabel metal1 -35 -552 -31 86 1 C
-rlabel space -24 -553 -20 86 1 D
-rlabel metal1 0 86 4 92 5 Vdd
-rlabel metal1 124 86 128 92 5 Gnd
-rlabel metal2 65 -560 71 -554 1 Y
+rlabel metal1 -57 81 -53 86 3 A
+rlabel metal1 -46 81 -42 86 1 B
+rlabel metal1 -35 81 -31 86 1 C
+rlabel metal1 -24 81 -20 86 1 D
+rlabel space 0 85 4 92 5 Vdd
+rlabel space 124 85 128 92 5 Gnd
+rlabel metal2 66 -560 71 -553 1 Y
 << end >>

@@ -1,9 +1,9 @@
 magic
 tech tsmc
-timestamp 1493250874
-<< nwell >>
-rect 48 56 51 61
+timestamp 1493254982
 << metal1 >>
+rect 0 87 4 97
+rect 124 87 128 97
 rect -57 45 -53 87
 rect -57 -445 -53 38
 rect -46 -41 -42 87
@@ -12,15 +12,11 @@ rect -46 -457 -42 -48
 rect -35 -127 -31 87
 rect -35 -280 -31 -134
 rect -24 -187 -20 87
-rect 48 56 51 61
 rect 148 44 152 89
 rect 32 38 38 42
 rect 70 38 75 43
-rect 48 -27 50 -22
-rect 32 -45 38 -44
-rect 32 -48 39 -45
+rect 32 -48 39 -44
 rect 69 -48 75 -43
-rect 48 -114 52 -109
 rect 32 -134 41 -130
 rect 68 -135 75 -130
 rect 148 -174 152 37
@@ -47,8 +43,7 @@ rect 159 -279 163 -194
 rect 18 -381 24 -377
 rect 54 -382 99 -377
 rect -24 -469 -20 -382
-rect 59 -411 60 -410
-rect 59 -415 101 -411
+rect 59 -414 101 -410
 rect 37 -470 41 -464
 rect 50 -470 54 -452
 rect 69 -464 113 -459
@@ -66,8 +61,8 @@ rect 170 -550 174 -464
 rect 37 -570 42 -554
 rect 50 -562 100 -558
 rect 50 -568 54 -562
-rect 67 -569 69 -568
 rect 67 -573 112 -569
+rect 71 -610 77 -606
 << m2contact >>
 rect -57 38 -50 45
 rect -46 -48 -39 -41
@@ -116,6 +111,7 @@ rect 88 -554 95 -547
 rect 167 -464 174 -457
 rect 100 -562 107 -555
 rect 112 -573 119 -566
+rect 77 -612 84 -605
 << metal2 >>
 rect -50 38 25 43
 rect 82 37 145 42
@@ -140,36 +136,45 @@ rect 106 -382 145 -377
 rect 101 -555 106 -415
 rect 120 -464 167 -459
 rect 112 -566 117 -513
+rect 79 -655 84 -612
 use 1INV  1INV_0
-timestamp 1493152604
+timestamp 1493248008
 transform 1 0 49 0 1 21
 box -49 -20 79 66
 use 1INV  1INV_1
-timestamp 1493152604
+timestamp 1493248008
 transform 1 0 49 0 1 -65
 box -49 -20 79 66
 use 1INV  1INV_2
-timestamp 1493152604
+timestamp 1493248008
 transform 1 0 49 0 1 -151
 box -49 -20 79 66
 use 3NAND  3NAND_0
-timestamp 1492655848
+timestamp 1493246171
 transform 1 0 18 0 1 -214
 box -18 -51 110 43
 use 3NAND  3NAND_1
-timestamp 1492655848
+timestamp 1493246171
 transform 1 0 18 0 1 -308
 box -18 -51 110 43
 use 3NAND  3NAND_2
-timestamp 1492655848
+timestamp 1493246171
 transform 1 0 18 0 1 -402
 box -18 -51 110 43
 use 4NAND  4NAND_0
-timestamp 1493152043
+timestamp 1493246152
 transform 1 0 18 0 1 -496
 box -18 -55 110 43
 use 4NAND  4NAND_1
-timestamp 1493152043
+timestamp 1493246152
 transform 1 0 18 0 1 -594
 box -18 -55 110 43
+<< labels >>
+rlabel metal1 -24 77 -20 87 1 D
+rlabel metal1 -35 77 -31 87 1 C
+rlabel metal1 -46 77 -42 87 1 B
+rlabel metal1 -57 77 -53 87 3 A
+rlabel metal1 0 87 4 97 5 Vdd
+rlabel metal1 124 87 128 97 5 Gnd
+rlabel metal2 79 -655 84 -650 1 Y
 << end >>

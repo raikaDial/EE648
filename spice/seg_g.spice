@@ -1,0 +1,144 @@
+* SPICE3 file created from seg_g.ext - technology: tsmc
+
+.option scale=0.06u
+.include mosistsmc180.sp
+
+V_paprika_0 D Gnd PULSE(0 3.3 20n 1n 1n 18n 40n)
+V_paprika_1 C Gnd PULSE(0 3.3 20n 1n 1n 36n 80n)
+V_paprika_2 B Gnd PULSE(0 3.3 20n 1n 1n 72n 160n)
+V_paprika_3 A Gnd PULSE(0 3.3 20n 1n 1n 144n 320n)
+V_paprika_4 Vdd Gnd DC 3.3
+
+M1000 Y m1_23_n563 Vdd Vdd pfet w=8 l=3
++ ad=152 pd=70 as=1072 ps=492 
+M1001 Vdd m1_37_n565 Y Vdd pfet w=8 l=3
++ ad=0 pd=0 as=0 ps=0 
+M1002 Y m1_54_n571 Vdd Vdd pfet w=8 l=3
++ ad=0 pd=0 as=0 ps=0 
+M1003 x0/a_9_n26 m1_23_n563 Gnd Gnd nfet w=12 l=3
++ ad=120 pd=44 as=736 ps=332 
+M1004 x0/a_22_n26 m1_37_n565 x0/a_9_n26 Gnd nfet w=12 l=3
++ ad=120 pd=44 as=0 ps=0 
+M1005 Y m1_54_n571 x0/a_22_n26 Gnd nfet w=12 l=3
++ ad=108 pd=42 as=0 ps=0 
+M1006 m1_23_n563 B Vdd Vdd pfet w=8 l=3
++ ad=160 pd=72 as=0 ps=0 
+M1007 Vdd A m1_23_n563 Vdd pfet w=8 l=3
++ ad=0 pd=0 as=0 ps=0 
+M1008 m1_23_n563 m1_50_n466 Vdd Vdd pfet w=8 l=3
++ ad=0 pd=0 as=0 ps=0 
+M1009 Vdd m1_23_n259 m1_23_n563 Vdd pfet w=8 l=3
++ ad=0 pd=0 as=0 ps=0 
+M1010 x1/a_9_n30 B Gnd Gnd nfet w=16 l=3
++ ad=160 pd=52 as=0 ps=0 
+M1011 x1/a_22_n30 A x1/a_9_n30 Gnd nfet w=16 l=3
++ ad=160 pd=52 as=0 ps=0 
+M1012 x1/a_35_n30 m1_50_n466 x1/a_22_n30 Gnd nfet w=16 l=3
++ ad=160 pd=52 as=0 ps=0 
+M1013 m1_23_n563 m1_23_n259 x1/a_35_n30 Gnd nfet w=16 l=3
++ ad=120 pd=50 as=0 ps=0 
+M1014 m1_37_n565 D Vdd Vdd pfet w=8 l=3
++ ad=160 pd=72 as=0 ps=0 
+M1015 Vdd C m1_37_n565 Vdd pfet w=8 l=3
++ ad=0 pd=0 as=0 ps=0 
+M1016 m1_37_n565 B Vdd Vdd pfet w=8 l=3
++ ad=0 pd=0 as=0 ps=0 
+M1017 Vdd m1_54_n279 m1_37_n565 Vdd pfet w=8 l=3
++ ad=0 pd=0 as=0 ps=0 
+M1018 x2/a_9_n30 D Gnd Gnd nfet w=16 l=3
++ ad=160 pd=52 as=0 ps=0 
+M1019 x2/a_22_n30 C x2/a_9_n30 Gnd nfet w=16 l=3
++ ad=160 pd=52 as=0 ps=0 
+M1020 x2/a_35_n30 B x2/a_22_n30 Gnd nfet w=16 l=3
++ ad=160 pd=52 as=0 ps=0 
+M1021 m1_37_n565 m1_54_n279 x2/a_35_n30 Gnd nfet w=16 l=3
++ ad=120 pd=50 as=0 ps=0 
+M1022 m1_54_n571 m1_23_n259 Vdd Vdd pfet w=8 l=3
++ ad=152 pd=70 as=0 ps=0 
+M1023 Vdd m1_36_n269 m1_54_n571 Vdd pfet w=8 l=3
++ ad=0 pd=0 as=0 ps=0 
+M1024 m1_54_n571 m1_54_n279 Vdd Vdd pfet w=8 l=3
++ ad=0 pd=0 as=0 ps=0 
+M1025 x3/a_9_n26 m1_23_n259 Gnd Gnd nfet w=12 l=3
++ ad=120 pd=44 as=0 ps=0 
+M1026 x3/a_22_n26 m1_36_n269 x3/a_9_n26 Gnd nfet w=12 l=3
++ ad=120 pd=44 as=0 ps=0 
+M1027 m1_54_n571 m1_54_n279 x3/a_22_n26 Gnd nfet w=12 l=3
++ ad=108 pd=42 as=0 ps=0 
+M1028 m1_54_n279 A Vdd Vdd pfet w=8 l=3
++ ad=80 pd=36 as=0 ps=0 
+M1029 m1_54_n279 A Gnd Gnd nfet w=4 l=3
++ ad=72 pd=36 as=0 ps=0 
+M1030 m1_36_n269 B Vdd Vdd pfet w=8 l=3
++ ad=80 pd=36 as=0 ps=0 
+M1031 m1_36_n269 B Gnd Gnd nfet w=4 l=3
++ ad=72 pd=36 as=0 ps=0 
+M1032 m1_23_n259 C Vdd Vdd pfet w=8 l=3
++ ad=80 pd=36 as=0 ps=0 
+M1033 m1_23_n259 C Gnd Gnd nfet w=4 l=3
++ ad=72 pd=36 as=0 ps=0 
+M1034 m1_50_n466 D Vdd Vdd pfet w=8 l=3
++ ad=80 pd=36 as=0 ps=0 
+M1035 m1_50_n466 D Gnd Gnd nfet w=4 l=3
++ ad=72 pd=36 as=0 ps=0 
+C0 m1_54_n279 m1_50_n466 0.0fF
+C1 Y Gnd 0.1fF
+C2 m1_37_n565 m1_54_n279 0.0fF
+C3 m1_50_n466 m1_23_n563 0.0fF
+C4 m1_23_n259 m1_54_n571 0.0fF
+C5 m1_37_n565 m1_23_n563 0.9fF
+C6 m1_36_n269 Vdd 0.3fF
+C7 m1_54_n279 Vdd 0.3fF
+C8 Vdd m1_23_n563 0.8fF
+C9 m1_50_n466 m1_23_n259 4.4fF
+C10 m1_37_n565 m1_23_n259 0.1fF
+C11 m1_36_n269 Gnd 0.1fF
+C12 m1_50_n466 m1_54_n571 0.0fF
+C13 m1_54_n279 Gnd 0.1fF
+C14 m1_37_n565 m1_54_n571 1.3fF
+C15 Vdd m1_23_n259 0.4fF
+C16 Gnd m1_23_n563 0.1fF
+C17 Vdd m1_54_n571 0.5fF
+C18 m1_37_n565 m1_50_n466 0.1fF
+C19 Gnd m1_23_n259 0.1fF
+C20 Vdd m1_50_n466 0.3fF
+C21 m1_37_n565 Vdd 0.8fF
+C22 Gnd m1_54_n571 0.1fF
+C23 m1_36_n269 m1_54_n279 3.6fF
+C24 Y m1_54_n571 0.0fF
+C25 Gnd m1_50_n466 0.1fF
+C26 m1_37_n565 Gnd 0.1fF
+C27 m1_36_n269 m1_23_n259 4.6fF
+C28 m1_37_n565 Y 0.0fF
+C29 m1_54_n279 m1_23_n259 0.1fF
+C30 m1_23_n259 m1_23_n563 0.0fF
+C31 m1_36_n269 m1_54_n571 0.0fF
+C32 Vdd Y 0.4fF
+C33 m1_54_n279 m1_54_n571 0.1fF
+C34 m1_54_n571 m1_23_n563 0.0fF
+C35 m1_36_n269 m1_50_n466 0.0fF
+C36 m1_50_n466 GND 1.8fF
+C37 m1_23_n259 GND 1.8fF
+C38 m1_36_n269 GND 1.5fF
+C39 m1_54_n279 GND 1.9fF
+C40 m1_54_n571 GND 0.3fF
+C41 m1_37_n565 GND 0.5fF
+C42 m1_23_n563 GND 0.5fF
+C43 Gnd GND 3.0fF
+C44 Y GND 0.1fF
+C45 Vdd GND 7.0fF
+
+** hspice subcircuit dictionary
+* x0	3NAND_1
+* x1	4NAND_1
+* x2	4NAND_0
+* x3	3NAND_0
+
+.tran 1n 340n
+
+.control
+set filetype=ascii
+run
+write segG.txt A B C D Y
+.endc
+.end
