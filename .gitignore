@@ -5,3 +5,6 @@
 *.blg
 *.bbl
 *.out
+Signal Generator/Signal Generator/bin/
+Signal Generator/Signal Generator/obj/Debug/DesignTimeResolveAssemblyReferences.cache
+Signal Generator/Signal Generator/obj/

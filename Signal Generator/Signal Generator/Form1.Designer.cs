@@ -274,7 +274,7 @@
             this.delayTime.Size = new System.Drawing.Size(91, 20);
             this.delayTime.TabIndex = 15;
             this.delayTime.Value = new decimal(new int[] {
-            2,
+            20,
             0,
             0,
             0});
@@ -345,7 +345,7 @@
             this.ClientSize = new System.Drawing.Size(1245, 556);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Paprika";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();

@@ -95,17 +95,18 @@ namespace Signal_Generator
                         }
                         else
                         {
-                            file.Write(" PULSE(");
-                            file.Write("0 ");
+                            file.Write(" PULSE(");                            
                             file.Write(logicLevel.Value + " ");
+                            file.Write("0 ");
                             file.Write(delayTime.Value + "n ");
                             file.Write(riseTime.Value + "n ");
                             file.Write(fallTime.Value + "n ");
                             file.Write(acTime + "n ");
                             file.WriteLine(perWidth + "n)");
 
-                            acTime = perWidth + acTime;
-                            perWidth = perWidth * 4;
+                            acTime = perWidth - (fallTime.Value + riseTime.Value);
+                            perWidth = perWidth * 2;
+                            
 
                         }
 
