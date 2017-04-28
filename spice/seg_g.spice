@@ -1,33 +1,34 @@
+SEGMENT_G
 * SPICE3 file created from seg_g.ext - technology: tsmc
 
 .option scale=0.06u
 .include mosistsmc180.sp
 
-V_paprika_0 D Gnd PULSE(0 3.3 20n 1n 1n 18n 40n)
-V_paprika_1 C Gnd PULSE(0 3.3 20n 1n 1n 36n 80n)
-V_paprika_2 B Gnd PULSE(0 3.3 20n 1n 1n 72n 160n)
-V_paprika_3 A Gnd PULSE(0 3.3 20n 1n 1n 144n 320n)
+V_paprika_0 D Gnd PULSE(3.3 0 0 1n 1n 18n 40n)
+V_paprika_1 C Gnd PULSE(3.3 0 0 1n 1n 38n 80n)
+V_paprika_2 B Gnd PULSE(3.3 0 0 1n 1n 78n 160n)
+V_paprika_3 A Gnd PULSE(3.3 0 0 1n 1n 158n 320n)
 V_paprika_4 Vdd Gnd DC 3.3
 
-M1000 Y m1_23_n563 Vdd Vdd pfet w=8 l=3
+M1000 Y m1_25_n563 Vdd Vdd pfet w=8 l=3
 + ad=152 pd=70 as=1072 ps=492 
 M1001 Vdd m1_37_n565 Y Vdd pfet w=8 l=3
 + ad=0 pd=0 as=0 ps=0 
-M1002 Y m1_54_n571 Vdd Vdd pfet w=8 l=3
+M1002 Y m1_56_n571 Vdd Vdd pfet w=8 l=3
 + ad=0 pd=0 as=0 ps=0 
-M1003 x0/a_9_n26 m1_23_n563 Gnd Gnd nfet w=12 l=3
+M1003 x0/a_9_n26 m1_25_n563 Gnd Gnd nfet w=12 l=3
 + ad=120 pd=44 as=736 ps=332 
 M1004 x0/a_22_n26 m1_37_n565 x0/a_9_n26 Gnd nfet w=12 l=3
 + ad=120 pd=44 as=0 ps=0 
-M1005 Y m1_54_n571 x0/a_22_n26 Gnd nfet w=12 l=3
+M1005 Y m1_56_n571 x0/a_22_n26 Gnd nfet w=12 l=3
 + ad=108 pd=42 as=0 ps=0 
-M1006 m1_23_n563 B Vdd Vdd pfet w=8 l=3
+M1006 m1_25_n563 B Vdd Vdd pfet w=8 l=3
 + ad=160 pd=72 as=0 ps=0 
-M1007 Vdd A m1_23_n563 Vdd pfet w=8 l=3
+M1007 Vdd A m1_25_n563 Vdd pfet w=8 l=3
 + ad=0 pd=0 as=0 ps=0 
-M1008 m1_23_n563 m1_50_n466 Vdd Vdd pfet w=8 l=3
+M1008 m1_25_n563 m1_50_n466 Vdd Vdd pfet w=8 l=3
 + ad=0 pd=0 as=0 ps=0 
-M1009 Vdd m1_23_n259 m1_23_n563 Vdd pfet w=8 l=3
+M1009 Vdd m1_23_n259 m1_25_n563 Vdd pfet w=8 l=3
 + ad=0 pd=0 as=0 ps=0 
 M1010 x1/a_9_n30 B Gnd Gnd nfet w=16 l=3
 + ad=160 pd=52 as=0 ps=0 
@@ -35,7 +36,7 @@ M1011 x1/a_22_n30 A x1/a_9_n30 Gnd nfet w=16 l=3
 + ad=160 pd=52 as=0 ps=0 
 M1012 x1/a_35_n30 m1_50_n466 x1/a_22_n30 Gnd nfet w=16 l=3
 + ad=160 pd=52 as=0 ps=0 
-M1013 m1_23_n563 m1_23_n259 x1/a_35_n30 Gnd nfet w=16 l=3
+M1013 m1_25_n563 m1_23_n259 x1/a_35_n30 Gnd nfet w=16 l=3
 + ad=120 pd=50 as=0 ps=0 
 M1014 m1_37_n565 D Vdd Vdd pfet w=8 l=3
 + ad=160 pd=72 as=0 ps=0 
@@ -43,7 +44,7 @@ M1015 Vdd C m1_37_n565 Vdd pfet w=8 l=3
 + ad=0 pd=0 as=0 ps=0 
 M1016 m1_37_n565 B Vdd Vdd pfet w=8 l=3
 + ad=0 pd=0 as=0 ps=0 
-M1017 Vdd m1_54_n279 m1_37_n565 Vdd pfet w=8 l=3
+M1017 Vdd m1_54_n281 m1_37_n565 Vdd pfet w=8 l=3
 + ad=0 pd=0 as=0 ps=0 
 M1018 x2/a_9_n30 D Gnd Gnd nfet w=16 l=3
 + ad=160 pd=52 as=0 ps=0 
@@ -51,23 +52,23 @@ M1019 x2/a_22_n30 C x2/a_9_n30 Gnd nfet w=16 l=3
 + ad=160 pd=52 as=0 ps=0 
 M1020 x2/a_35_n30 B x2/a_22_n30 Gnd nfet w=16 l=3
 + ad=160 pd=52 as=0 ps=0 
-M1021 m1_37_n565 m1_54_n279 x2/a_35_n30 Gnd nfet w=16 l=3
+M1021 m1_37_n565 m1_54_n281 x2/a_35_n30 Gnd nfet w=16 l=3
 + ad=120 pd=50 as=0 ps=0 
-M1022 m1_54_n571 m1_23_n259 Vdd Vdd pfet w=8 l=3
+M1022 m1_56_n571 m1_23_n259 Vdd Vdd pfet w=8 l=3
 + ad=152 pd=70 as=0 ps=0 
-M1023 Vdd m1_36_n269 m1_54_n571 Vdd pfet w=8 l=3
+M1023 Vdd m1_36_n269 m1_56_n571 Vdd pfet w=8 l=3
 + ad=0 pd=0 as=0 ps=0 
-M1024 m1_54_n571 m1_54_n279 Vdd Vdd pfet w=8 l=3
+M1024 m1_56_n571 m1_54_n281 Vdd Vdd pfet w=8 l=3
 + ad=0 pd=0 as=0 ps=0 
 M1025 x3/a_9_n26 m1_23_n259 Gnd Gnd nfet w=12 l=3
 + ad=120 pd=44 as=0 ps=0 
 M1026 x3/a_22_n26 m1_36_n269 x3/a_9_n26 Gnd nfet w=12 l=3
 + ad=120 pd=44 as=0 ps=0 
-M1027 m1_54_n571 m1_54_n279 x3/a_22_n26 Gnd nfet w=12 l=3
+M1027 m1_56_n571 m1_54_n281 x3/a_22_n26 Gnd nfet w=12 l=3
 + ad=108 pd=42 as=0 ps=0 
-M1028 m1_54_n279 A Vdd Vdd pfet w=8 l=3
+M1028 m1_54_n281 A Vdd Vdd pfet w=8 l=3
 + ad=80 pd=36 as=0 ps=0 
-M1029 m1_54_n279 A Gnd Gnd nfet w=4 l=3
+M1029 m1_54_n281 A Gnd Gnd nfet w=4 l=3
 + ad=72 pd=36 as=0 ps=0 
 M1030 m1_36_n269 B Vdd Vdd pfet w=8 l=3
 + ad=80 pd=36 as=0 ps=0 
@@ -81,52 +82,52 @@ M1034 m1_50_n466 D Vdd Vdd pfet w=8 l=3
 + ad=80 pd=36 as=0 ps=0 
 M1035 m1_50_n466 D Gnd Gnd nfet w=4 l=3
 + ad=72 pd=36 as=0 ps=0 
-C0 m1_54_n279 m1_50_n466 0.0fF
-C1 Y Gnd 0.1fF
-C2 m1_37_n565 m1_54_n279 0.0fF
-C3 m1_50_n466 m1_23_n563 0.0fF
-C4 m1_23_n259 m1_54_n571 0.0fF
-C5 m1_37_n565 m1_23_n563 0.9fF
-C6 m1_36_n269 Vdd 0.3fF
-C7 m1_54_n279 Vdd 0.3fF
-C8 Vdd m1_23_n563 0.8fF
-C9 m1_50_n466 m1_23_n259 4.4fF
-C10 m1_37_n565 m1_23_n259 0.1fF
-C11 m1_36_n269 Gnd 0.1fF
-C12 m1_50_n466 m1_54_n571 0.0fF
-C13 m1_54_n279 Gnd 0.1fF
-C14 m1_37_n565 m1_54_n571 1.3fF
-C15 Vdd m1_23_n259 0.4fF
-C16 Gnd m1_23_n563 0.1fF
-C17 Vdd m1_54_n571 0.5fF
-C18 m1_37_n565 m1_50_n466 0.1fF
-C19 Gnd m1_23_n259 0.1fF
-C20 Vdd m1_50_n466 0.3fF
-C21 m1_37_n565 Vdd 0.8fF
-C22 Gnd m1_54_n571 0.1fF
-C23 m1_36_n269 m1_54_n279 3.6fF
-C24 Y m1_54_n571 0.0fF
-C25 Gnd m1_50_n466 0.1fF
-C26 m1_37_n565 Gnd 0.1fF
-C27 m1_36_n269 m1_23_n259 4.6fF
-C28 m1_37_n565 Y 0.0fF
-C29 m1_54_n279 m1_23_n259 0.1fF
-C30 m1_23_n259 m1_23_n563 0.0fF
-C31 m1_36_n269 m1_54_n571 0.0fF
-C32 Vdd Y 0.4fF
-C33 m1_54_n279 m1_54_n571 0.1fF
-C34 m1_54_n571 m1_23_n563 0.0fF
-C35 m1_36_n269 m1_50_n466 0.0fF
-C36 m1_50_n466 GND 1.8fF
-C37 m1_23_n259 GND 1.8fF
-C38 m1_36_n269 GND 1.5fF
-C39 m1_54_n279 GND 1.9fF
-C40 m1_54_n571 GND 0.3fF
-C41 m1_37_n565 GND 0.5fF
-C42 m1_23_n563 GND 0.5fF
-C43 Gnd GND 3.0fF
-C44 Y GND 0.1fF
-C45 Vdd GND 7.0fF
+C0 m1_56_n571 m1_37_n565 1.3fF
+C1 Y Vdd 0.4fF
+C2 m1_23_n259 m1_25_n563 0.0fF
+C3 Vdd m1_37_n565 0.8fF
+C4 m1_50_n466 m1_37_n565 0.1fF
+C5 Gnd m1_23_n259 0.1fF
+C6 Gnd m1_54_n281 0.1fF
+C7 Gnd m1_36_n269 0.1fF
+C8 Vdd m1_56_n571 0.5fF
+C9 m1_56_n571 m1_50_n466 0.0fF
+C10 m1_23_n259 m1_37_n565 0.1fF
+C11 Gnd m1_25_n563 0.1fF
+C12 m1_54_n281 m1_37_n565 0.0fF
+C13 Vdd m1_50_n466 0.3fF
+C14 m1_25_n563 m1_37_n565 0.9fF
+C15 m1_56_n571 m1_23_n259 0.0fF
+C16 Gnd Y 0.1fF
+C17 m1_56_n571 m1_54_n281 0.1fF
+C18 m1_56_n571 m1_36_n269 0.0fF
+C19 Vdd m1_23_n259 0.4fF
+C20 m1_23_n259 m1_50_n466 4.4fF
+C21 Gnd m1_37_n565 0.1fF
+C22 Vdd m1_54_n281 0.3fF
+C23 m1_50_n466 m1_54_n281 0.0fF
+C24 Vdd m1_36_n269 0.3fF
+C25 m1_50_n466 m1_36_n269 0.0fF
+C26 m1_56_n571 m1_25_n563 0.0fF
+C27 Y m1_37_n565 0.0fF
+C28 Vdd m1_25_n563 0.8fF
+C29 m1_50_n466 m1_25_n563 0.0fF
+C30 Gnd m1_56_n571 0.1fF
+C31 m1_23_n259 m1_54_n281 0.1fF
+C32 m1_23_n259 m1_36_n269 4.6fF
+C33 m1_54_n281 m1_36_n269 4.2fF
+C34 Y m1_56_n571 0.0fF
+C35 Gnd m1_50_n466 0.1fF
+C36 m1_50_n466 Gnd 1.8fF
+C37 m1_23_n259 Gnd 1.8fF
+C38 m1_36_n269 Gnd 1.5fF
+C39 m1_54_n281 Gnd 1.9fF
+C40 m1_56_n571 Gnd 0.3fF
+C41 m1_37_n565 Gnd 0.5fF
+C42 m1_25_n563 Gnd 0.5fF
+C43 Gnd Gnd 3.0fF
+C44 Y Gnd 0.1fF
+C45 Vdd Gnd 7.0fF
 
 ** hspice subcircuit dictionary
 * x0	3NAND_1

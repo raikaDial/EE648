@@ -1,5 +1,10 @@
+<<<<<<< .merge_file_a06360
 Title: * hspice file created from seg_a.ext - technology: tsmc
 Date: Thu Apr 27 01:06:45  2017
+=======
+Title: * spice3 file created from seg_a.ext - technology: tsmc
+Date: Fri Apr 28 11:39:35  2017
+>>>>>>> .merge_file_a09484
 Plotname: Transient Analysis
 Flags: real
 No. Variables: 6

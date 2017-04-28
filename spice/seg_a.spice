@@ -3,10 +3,10 @@
 .option scale=0.06u
 .include mosistsmc180.sp
 
-V_paprika_0 D Gnd PULSE(0 3.3 2n 1n 1n 18n 40n)
-V_paprika_1 C Gnd PULSE(0 3.3 2n 1n 1n 36n 80n)
-V_paprika_2 B Gnd PULSE(0 3.3 2n 1n 1n 72n 160n)
-V_paprika_3 A Gnd PULSE(0 3.3 2n 1n 1n 144n 320n)
+V_paprika_0 D Gnd PULSE(3.3 0 0 1n 1n 18n 40n)
+V_paprika_1 C Gnd PULSE(3.3 0 0 1n 1n 38n 80n)
+V_paprika_2 B Gnd PULSE(3.3 0 0 1n 1n 78n 160n)
+V_paprika_3 A Gnd PULSE(3.3 0 0 1n 1n 158n 320n)
 V_paprika_4 Vdd Gnd DC 3.3
 
 M1000 Y m1_24_n221 Vdd Vdd pfet w=8 l=3
