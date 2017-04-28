@@ -11,6 +11,7 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{todonotes}
 \usepackage{indentfirst}
+\usepackage{rotating} % for rotating figures
 
 \pagestyle{fancy}
 \lhead{} 
@@ -286,6 +287,7 @@ The results of this section are summarized in Table \ref{tab:delay_sizing}.
 \end{table}
 
 \section{Magic VLSI Layout}
+\subsection{Individual Gate Layout}
 Implementing the circuit in bare silicon required first constructing VLSI layouts for each gate.
 To ease the assemblage of the full layout, the layout was started by designing every gate to be unit sized; this allows for expedient construction of the circuit and verification of the layout.
 Additionally, the gates were laid out such that increasing the transistor size increases the width of the layout, while the height stays constant.
@@ -319,6 +321,17 @@ Table \ref{tab:tran_dim} shows these measurements, as well as the physical dimen
 		\bottomrule
 	\end{tabular}
 \end{table}
+
+\subsection{Full Circuit Layout}
+After constructing the individual gates, the next step was to lay them out into the full converter circuit.
+To accomplish this, first each segment was laid out 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth, keepaspectratio]{Graphics/7seg.png}
+	\caption{Spice Simulation of Complete Circuit}
+	\label{}
+\end{figure}
 
 \begin{figure}[H]
 	\centering
@@ -411,7 +424,7 @@ Table \ref{tab:tran_dim} shows these measurements, as well as the physical dimen
 \end{figure}
 
 
-\newpage0.22
+\newpage
 \section{Logic Equations}
 \label{app:logicEquations}
 \begin{equation}
@@ -474,6 +487,19 @@ g = \overline{\overbar{(\bar{A}\bar{B}\bar{C})}\overbar{(\bar{A}BCD)}\overbar{(A
 	\label{fig:magic_NAND4}
 \end{figure}
 
+\begin{sidewaysfigure}
+\centering
+	\includegraphics[width=\textwidth]{Graphics/hex7seg_unexpanded}
+	\caption{Unexpanded Full Circuit Layout}
+	\label{fig:hex7seg_unexpanded}
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}
+	\includegraphics[width=\textwidth]{Graphics/hex7seg_expanded}
+	\caption{Expanded Full Circuit Layout}
+	\label{fig:hex7seg_expanded}
+\end{sidewaysfigure}
+
 \section{SPICE Simulations}
 \label{app:spice}
 
@@ -491,7 +517,7 @@ g = \overline{\overbar{(\bar{A}\bar{B}\bar{C})}\overbar{(\bar{A}BCD)}\overbar{(A
 	\label{fig:spice_2NAND}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[H]:
 	\centering
 	\includegraphics[width=0.70\linewidth, keepaspectratio]{Graphics/3NAND_spice}
 	\caption{Spice Simulation of 3-Input NAND}
