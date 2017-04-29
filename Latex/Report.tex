@@ -10,7 +10,6 @@
 \usepackage{float}
 \usepackage[hidelinks]{hyperref}
 \usepackage{todonotes}
-\usepackage{indentfirst}
 \usepackage{rotating} % for rotating figures
 
 \pagestyle{fancy}
@@ -326,18 +325,32 @@ Table \ref{tab:tran_dim} shows these measurements, as well as the physical dimen
 After constructing the individual gates, the next step was to lay them out into the full converter circuit.
 To accomplish this, first each segment was laid out 
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth, keepaspectratio]{Graphics/7seg.png}
-	\caption{Spice Simulation of Complete Circuit}
-	\label{}
-\end{figure}
+\subsection{Spice Simulations}
+The circuit was simulated at the individual segment level and also as a complete layout.
+With 4 inputs it is reasonable to do a spanning sweep of all input possibilities and verify the functionality in every case.
+A tool was created in C\# to generate the input waveforms in a manner similar to the layout of a truth table, resulting in a binary count from 0 to 15.
+NG spice was then used to stimulate the circuits with the input sweep, and export the results into a ASCII file.
+The ASCII file is then loaded into Matlab where an output figure showing both the input stimuli and outputs from the circuit.
+
+Figure \ref{fig:fullCktSpice} shows the output from the spice simulation for the entire circuit. 
+Input D is the least significant bit of the input number and input A is the most significant bit.
+The signals beginning with ``Seg'' are the outputs to the 7 segment display.
+The outputs are active low, meaning that a 0 value will turn on the LED segment.
+The first time block corresponds to 0, and every segment except for segment G is active. 
+A zero on a 7 segment display lights every segment except for the middle horizontal segment, which matches the output from spice.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth, keepaspectratio]{Graphics/FO4_Delay}
 	\caption{Measuring FO4 Delay and Rise/Fall Times of Inverter}
 	\label{fig:delay_rise_fall}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth, keepaspectratio]{Graphics/7seg.png}
+	\caption{Spice Simulation of Complete Circuit}
+	\label{fig:fullCktSpice}
 \end{figure}
 
 \begin{figure}[H]
