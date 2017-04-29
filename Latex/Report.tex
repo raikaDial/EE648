@@ -313,18 +313,35 @@ Table \ref{tab:tran_dim} shows these measurements, as well as the physical dimen
 		\toprule
 		Gate & Rise & Fall & \begin{tabular}{@{}c@{}}Falling \\ Delay \end{tabular} & \begin{tabular}{@{}c@{}}Rising \\ Delay \end{tabular} &  Width & Height & Area\\
 		\midrule
-		INV		& 50 ps & 55 ps & 40 ps & 40 ps &	128\(\lambda\) &	86\(\lambda\)	& 11,008\(\lambda\)	\\
-		2NAND	& 135 ps & 120 ps &   120 ps &   90 ps  &	128\(\lambda\)	&	90\(\lambda\) 	& 11,520\(\lambda\)	\\
-		3NAND	& 215 ps & 130 ps & 135 ps & 100 ps &	128\(\lambda\) &	94\(\lambda\) 	& 12,032\(\lambda\)	\\
-		4NAND	& 265 ps & 155 ps & 185 ps & 110 ps &	128\(\lambda\)	&	98\(\lambda\) 	& 12,544\(\lambda\)	\\
+		INV		& 50 ps & 55 ps & 40 ps & 40 ps &	128\(\lambda\) &	86\(\lambda\)	& 11,008\(\lambda^2\)	\\
+		2NAND	& 135 ps & 120 ps &   120 ps &   90 ps  &	128\(\lambda\)	&	90\(\lambda\) 	& 11,520\(\lambda^2\)	\\
+		3NAND	& 215 ps & 130 ps & 135 ps & 100 ps &	128\(\lambda\) &	94\(\lambda\) 	& 12,032\(\lambda^2\)	\\
+		4NAND	& 265 ps & 155 ps & 185 ps & 110 ps &	128\(\lambda\)	&	98\(\lambda\) 	& 12,544\(\lambda^2\)	\\
 		\bottomrule
 	\end{tabular}
 \end{table}
 
 \subsection{Full Circuit Layout}
 After constructing the individual gates, the next step was to lay them out into the full converter circuit.
-To accomplish this, first each segment was laid out 
+To accomplish this, first each segment was laid out according to the logic diagrams in Appendix \ref{app:logicEquations}.
+An example of the layout for an individual gate is shown in Figure \ref{fig:segA_layout} in Appendix \ref{app:magic_vlsi_layouts}.
+The gates were laid out in a single line so that their \(V_{dd}\) and \(gnd\) rails would line up, starting with the gates in the first stage at the top and the gate in the last stage at the bottom.
+Additionally, to the left of the \(V_{dd}\) rail there are rails for the A, B, C, and D inputs, and to the right of the \(gnd\) rail are rails for the inverted inputs needed by that segment.
+Each segment includes inverters to generate the inverted inputs to reduce the inverter fan-out.
+The inputs are only inverted once per segment, however, so some fan-out remains; fortunately the maximum fanout in this case is only three, which is acceptable for the purposes of this converter.
 
+Each segment was laid out in this fashion, then all of the segments were combined into a full layout.
+In Appendix \ref{app:magic_vlsi_layouts}, Figure \ref{fig:hex7seg_unexpanded} shows this layout with the individual cells unexpanded so that the location of each segment can be easily seen, and Figure \ref{fig:hex7seg_expanded} shows the layout with the individual cells expanded.
+In this layout the segments are placed side-by-side, starting with segment a on the left and ending with segment g on the right.
+At the top of the circuit are rails for \(V_{dd}\) and \(gnd\), and at the bottom are rails for the inputs A, B, C, and D.
+This final layout has a width of 1769\(\lambda\) and a height of 947\(\lambda\).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth, keepaspectratio]{Graphics/7seg.png}
+	\caption{Spice Simulation of Complete Circuit}
+	\label{}
+\end{figure}
 \subsection{Spice Simulations}
 The circuit was simulated at the individual segment level and also as a complete layout.
 With 4 inputs it is reasonable to do a spanning sweep of all input possibilities and verify the functionality in every case.
@@ -500,19 +517,26 @@ g = \overline{\overbar{(\bar{A}\bar{B}\bar{C})}\overbar{(\bar{A}BCD)}\overbar{(A
 	\label{fig:magic_NAND4}
 \end{figure}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.42\linewidth]{Graphics/seg_a}
+	\caption{Layout for Segment A}
+	\label{fig:segA_layout}
+\end{figure}
+\clearpage
 \begin{sidewaysfigure}
 \centering
 	\includegraphics[width=\textwidth]{Graphics/hex7seg_unexpanded}
 	\caption{Unexpanded Full Circuit Layout}
 	\label{fig:hex7seg_unexpanded}
 \end{sidewaysfigure}
-
+\clearpage
 \begin{sidewaysfigure}
 	\includegraphics[width=\textwidth]{Graphics/hex7seg_expanded}
 	\caption{Expanded Full Circuit Layout}
 	\label{fig:hex7seg_expanded}
 \end{sidewaysfigure}
-
+\clearpage
 \section{SPICE Simulations}
 \label{app:spice}
 
