@@ -302,7 +302,7 @@ Delay is measured from 50\% on the input to 50\% on the output, the rise time is
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth, keepaspectratio]{Graphics/FO4_Delay}
+	\includegraphics[width=0.9\textwidth, keepaspectratio]{Graphics/FO4_Delay}
 	\caption{Measuring FO4 Delay and Rise/Fall Times of Inverter}
 	\label{fig:delay_rise_fall}
 \end{figure}
@@ -319,6 +319,7 @@ For the inverter circuit, the fan-out-of-four delay (FO4) was measured; the setu
 
 For the two, three, and four input NAND gates, the circuits used to test the delay, rise, and fall times consisted of the device under test, with a unit inverter on each input and the output driving four inputs to circuits of the same type.
 Figure \ref{fig:nand_delay_meas} shows this setup for the 2-input NAND.
+These measurements were based on the worst case: for rising, this is when all inputs start high and only one switches to low, and for falling this is when all inputs start high except for one which then switches high.
 
 \begin{figure}[H]
 	\centering
@@ -334,7 +335,7 @@ Table \ref{tab:tran_dim} summarizes the measurements, as well as the physical di
 
 \begin{table}[H]
 	\centering
-	\caption{Transistor Delay, Rise, Fall Times, and Gate Dimensions}
+	\caption{Worst Case Transistor Delay, Rise, Fall Times, and Gate Dimensions}
 	\label{tab:tran_dim}
 	\begin{tabular}{lccccccc}
 		\toprule
